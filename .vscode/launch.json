@@ -6,15 +6,36 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - MyClass",
+            "name": "CodeLens (Launch) - EchoTestDrive",
             "request": "launch",
-            "mainClass": "MyClass"
+            "mainClass": "EchoTestDrive",
+            "projectName": "Java_8407d996"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DrumKitTestDrive",
+            "request": "launch",
+            "mainClass": "DrumKitTestDrive",
+            "projectName": "Java_8407d996"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GameLauncher",
+            "request": "launch",
+            "mainClass": "GuessGame.GameLauncher",
+            "projectName": "Java_8407d996"
         },
         {
             "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-MovieTestDriver",
+            "request": "launch",
+            "mainClass": "MovieTestDriver"
         }
     ]
 }
