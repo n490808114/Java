@@ -6,10 +6,51 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Puzzle4",
+            "request": "launch",
+            "mainClass": "Puzzle4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mix4",
+            "request": "launch",
+            "mainClass": "Mix4"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClockTestDrive",
+            "request": "launch",
+            "mainClass": "ClockTestDrive"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - XCopyTestDrive",
+            "request": "launch",
+            "mainClass": "XCopyTestDrive"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - XCopy",
+            "request": "launch",
+            "mainClass": "XCopy"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PoorDogTestDrive",
+            "request": "launch",
+            "mainClass": "PoorDogTestDrive"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GoodDogTestDrive",
+            "request": "launch",
+            "mainClass": "GoodDogTestDrive"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - EchoTestDrive",
             "request": "launch",
-            "mainClass": "EchoTestDrive",
-            "projectName": "Java_8407d996"
+            "mainClass": "GoodDogTestDrive"
         },
         {
             "type": "java",
