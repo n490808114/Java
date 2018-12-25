@@ -74,7 +74,12 @@ class SimpleBoatGame{
             getUserInput.close();
 
             int [] userGuessRightList = new int[3];
-            
+            for (int each : userGuessRightList){
+                if ((each == 0){
+                    each = Integer.parseInt(userGuess);
+                    break;
+                }
+            }
             String result = boat01.checkresult(userGuess);
             
             System.out.println(result);
