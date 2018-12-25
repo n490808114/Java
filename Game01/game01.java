@@ -1,4 +1,4 @@
-class Game01{
+public class Game01{
     public static void main(String[] args) {
         System.out.println("Game Begin!");
         System.out.println("we have two player");

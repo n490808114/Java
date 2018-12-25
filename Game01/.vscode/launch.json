@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SimpleBoatGame",
+            "request": "launch",
+            "mainClass": "SimpleBoatGame",
+            "projectName": "Game01_9d38116"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SimpleBoatTestDrive",
+            "request": "launch",
+            "mainClass": "SimpleBoatTestDrive",
+            "projectName": "Game01_9d38116"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Game01",
             "request": "launch",
             "mainClass": "Game01"
