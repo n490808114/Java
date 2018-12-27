@@ -30,10 +30,24 @@ class SimpleBoat{
             if (cell == guess){
                 result = "HIT";
                 numOfHits ++;
+
+                /* 更新locationCells 删除击中的cell */
+                int[] newLocationCells = new int[(locationCells.length - 1)];
+                int newLocationCellsIndex = 0;
+                for (int each : locationCells){
+                    if (each==cell){
+                        newLocationCellsIndex --;
+                    }else{
+                        newLocationCells[newLocationCellsIndex] = each;
+                    }
+                    newLocationCellsIndex ++;
+                } 
+                locationCells = newLocationCells;
+
                 break;
             }
         }
-        if(numOfHits == locationCells.length){
+        if(locationCells.length == 0){
             result = "KILL";
         }
         return result;
@@ -71,15 +85,8 @@ class SimpleBoatGame{
             
             Scanner getUserInput = new Scanner(System.in);
             String userGuess = getUserInput.next();
-            getUserInput.close();
+            //getUserInput.close();
 
-            int [] userGuessRightList = new int[3];
-            for (int each : userGuessRightList){
-                if ((each == 0){
-                    each = Integer.parseInt(userGuess);
-                    break;
-                }
-            }
             String result = boat01.checkresult(userGuess);
             
             System.out.println(result);
@@ -90,7 +97,7 @@ class SimpleBoatGame{
             if(numOfGuesses == 10){
                 break;
             }
-        }
+            }
         System.out.println("You guessed " + Integer.toString(numOfGuesses)+ " times!");
     }
 }
