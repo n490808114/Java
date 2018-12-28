@@ -6,6 +6,36 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ObjectTestDrive",
+            "request": "launch",
+            "mainClass": "ObjectTestDrive"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MyDogList",
+            "request": "launch",
+            "mainClass": "MyDogList"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestBoats",
+            "request": "launch",
+            "mainClass": "TestBoats"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MonsterTestDrive",
+            "request": "launch",
+            "mainClass": "MonsterTestDrive"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mixed2",
+            "request": "launch",
+            "mainClass": "Mixed2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Mutifor",
             "request": "launch",
             "mainClass": "Mutifor"
