@@ -16,13 +16,13 @@ class Dog extends Animal{
 }
 public class ObjectTestDrive{
     public static void main(String[] args) {
-        ArrayList<Animal> test = new ArrayList<Animal>();
+        ArrayList<Object> test = new ArrayList<Object>();
         Dog a = new Dog();
-        Animal b = new Animal();
+        //Animal b = new Animal();
         test.add(a);
-        test.add(b);
+        //test.add(b);
         test.get(0).bark();
-        test.get(1).bark();
+        //test.get(1).bark();
         //test.get(0).eat();
     }
 
