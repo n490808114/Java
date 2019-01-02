@@ -1,4 +1,4 @@
-class Dog{
+public class Dog{
     String name;
 
     public void bark(){

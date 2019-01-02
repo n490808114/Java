@@ -16,7 +16,7 @@ class Dog extends Animal{
 }
 public class ObjectTestDrive{
     public static void main(String[] args) {
-        ArrayList<Object> test = new ArrayList<Object>();
+        ArrayList<Animal> test = new ArrayList<Animal>();
         Dog a = new Dog();
         //Animal b = new Animal();
         test.add(a);
