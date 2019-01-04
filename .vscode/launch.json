@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - StaticTests",
+            "request": "launch",
+            "mainClass": "StaticTests",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StatticTests",
+            "request": "launch",
+            "mainClass": "StatticTests",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DateTestDrive",
+            "request": "launch",
+            "mainClass": "DateTestDrive",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TestBox",
             "request": "launch",
             "mainClass": "TestBox",
