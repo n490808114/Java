@@ -6,10 +6,45 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - OutputTestDrive",
+            "name": "CodeLens (Launch) - StaticTests",
             "request": "launch",
-            "mainClass": "traning.OutputTestDrive",
-            "projectName": "Java_8407d996"
+            "mainClass": "StaticTests",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StatticTests",
+            "request": "launch",
+            "mainClass": "StatticTests",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DateTestDrive",
+            "request": "launch",
+            "mainClass": "DateTestDrive",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestBox",
+            "request": "launch",
+            "mainClass": "TestBox",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Foo",
+            "request": "launch",
+            "mainClass": "Foo",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Acts",
+            "request": "launch",
+            "mainClass": "Acts",
+            "projectName": "Java_2d76e7ec"
         },
         {
             "type": "java",

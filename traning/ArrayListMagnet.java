@@ -1,6 +1,5 @@
 import java.util.*;
 
-import com.sun.tools.classfile.StackMapTable_attribute.stack_map_frame;
 public class ArrayListMagnet{
     public static void main(String[] args) {
         ArrayList<String> a = new ArrayList<String>();
