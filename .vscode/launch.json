@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Compare",
+            "request": "launch",
+            "mainClass": "Compare",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GUI",
+            "request": "launch",
+            "mainClass": "GUI",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - StaticTests",
             "request": "launch",
             "mainClass": "StaticTests",
