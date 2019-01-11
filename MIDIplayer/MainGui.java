@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.sound.midi.*;
 
-public class GuiTest {
+public class MainGui {
     Gui gui = new Gui();
     Gui2 gui2 = new Gui2();
     public void go() {
@@ -51,7 +51,7 @@ public class GuiTest {
         JLabel Label = new JLabel("You should click that button");
         JButton button = new JButton("click me!");
         JRadioButton radioButton = new JRadioButton("µ¥Ñ¡°´Å¥");
-        JRadioButtonMenuItem radioButtonMenuItem = new JRadioButtonMenuItem("for Test");
+        JRadioButtonMenuItem radioButtonMenuItem = new JRadioButtonMenuItem("for ");
 
         public void go() {
             frame.getContentPane().add(panel);

@@ -1,15 +1,15 @@
 import javax.sound.midi.*;
 
-public class MusicTest1{
-    GuiTest guiTest = new GuiTest();
-    GuiTest.Gui2 gui2 = guiTest.new Gui2();
-    GuiTest.Gui2.MyDrawPanel myDrawPanel = gui2.new MyDrawPanel();
+public class Music{
+    MainGui gui = new MainGui();
+    MainGui.Gui2 gui2 = gui.new Gui2();
+    MainGui.Gui2.MyDrawPanel myDrawPanel = gui2.new MyDrawPanel();
     public static void main(String[] args) {
-        MusicTest1 musicTest1 = new MusicTest1();
-        musicTest1.go();
+        Music music = new Music();
+        music.go();
     }
     public void go(){
-        guiTest.go();
+        gui.go();
         try {
             Sequencer player = MidiSystem.getSequencer();
             player.open();
@@ -18,7 +18,7 @@ public class MusicTest1{
             Track songTrack = cd.createTrack();
 
             int[] controllerEvent = {127};
-            player.addControllerEventListener(guiTest.gui2.myDrawPanel,controllerEvent);
+            player.addControllerEventListener(gui.gui2.myDrawPanel,controllerEvent);
 
             for(int i=1;i<61;i++){
                 songTrack.add(makeEvent(144,1,i,100,i));
