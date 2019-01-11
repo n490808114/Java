@@ -1,7 +1,48 @@
 import javax.sound.midi.*;
 
 public class MusicTest1{
-    public void play(int noteOnNote00,int noteOnNote01){
+    GuiTest guiTest = new GuiTest();
+    GuiTest.Gui2 gui2 = guiTest.new Gui2();
+    GuiTest.Gui2.MyDrawPanel myDrawPanel = gui2.new MyDrawPanel();
+    public static void main(String[] args) {
+        MusicTest1 musicTest1 = new MusicTest1();
+        musicTest1.go();
+    }
+    public void go(){
+        guiTest.go();
+        try {
+            Sequencer player = MidiSystem.getSequencer();
+            player.open();
+
+            Sequence cd = new Sequence(Sequence.PPQ,4);
+            Track songTrack = cd.createTrack();
+
+            int[] controllerEvent = {127};
+            player.addControllerEventListener(guiTest.gui2.myDrawPanel,controllerEvent);
+
+            for(int i=1;i<61;i++){
+                songTrack.add(makeEvent(144,1,i,100,i));
+                songTrack.add(makeEvent(176,1,127,0,i));
+                songTrack.add(makeEvent(128,1,i,100,i+2));
+            }
+            player.setSequence(cd);
+            player.setTempoInBPM(220);
+            player.start();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public static MidiEvent makeEvent(int command, int channel, int data1, int data2, int tack){
+        MidiEvent result =null;
+        try{
+            ShortMessage a = new ShortMessage();
+            a.setMessage(command,channel,data1,data2);
+            result = new MidiEvent(a,tack);
+        }catch (InvalidMidiDataException ex){ex.printStackTrace();}
+        return result;
+    }
+}
+/*    public void play(int noteOnNote00,int noteOnNote01){
         try{
             Sequencer player = MidiSystem.getSequencer();//got a Player
             player.open();//open it
@@ -26,16 +67,4 @@ public class MusicTest1{
         }catch(InvalidMidiDataException imde){
             System.out.println("Line 13:This have a InvalidMidiDataException");
         }
-    }
-    public static void main(String[] args) {
-        MusicTest1 mt = new MusicTest1();
-        if (args.length<2 || args.length >2){
-            System.out.println("not enough length");
-        }else{
-            int noteOnNote00 = Integer.parseInt(args[0]);
-            int noteOnNote01 = Integer.parseInt(args[1]);
-            mt.play(noteOnNote00,noteOnNote01);
-        }
-
-    }
-}
+    }*/
