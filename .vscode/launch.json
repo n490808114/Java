@@ -1,15 +1,22 @@
 {
-    // 使用 IntelliSense 了解相关属性。 
+    // 使用 IntelliSense 了解相关属性。
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - FloorMod",
+            "name": "CodeLens (Launch) - Compare",
             "request": "launch",
-            "mainClass": "traning.GuessGame.FloorMod",
-            "projectName": "Java_8407d996"
+            "mainClass": "Compare",
+            "projectName": "Java_2d76e7ec"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GUI",
+            "request": "launch",
+            "mainClass": "GUI",
+            "projectName": "Java_2d76e7ec"
         },
         {
             "type": "java",
@@ -156,6 +163,7 @@
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
+            "encoding": "GBK"
         },
         {
             "type": "java",
