@@ -11,13 +11,14 @@ public class Gui {
 
 
         panel.setBackground(Color.lightGray);
-        frame.getContentPane().add(BorderLayout.WEST,panel);
+        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+        frame.getContentPane().add(BorderLayout.CENTER,panel);
 
         panel.add(button01);
         panel.add(button02);
         panel.add(button03);
-
-        frame.setSize(300,300);
+        //frame.pack();
+        //frame.setSize(300,300);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

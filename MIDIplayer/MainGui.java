@@ -54,7 +54,7 @@ public class MainGui {
         JRadioButtonMenuItem radioButtonMenuItem = new JRadioButtonMenuItem("for ");
 
         public void go() {
-            frame.getContentPane().add(panel);
+            frame.getContentPane().add(BorderLayout.SOUTH,panel);
 
             button.addActionListener(new ButtonListener());
 
@@ -81,6 +81,7 @@ public class MainGui {
     class Gui2 {//page two
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
+        JPanel centerPanel = new JPanel();
         String orderCode = "";
         //add four button and a text label ;label don`t have textarea`s white backgroud,so more beauty
         JButton button = new JButton("EXIT");
@@ -94,7 +95,8 @@ public class MainGui {
 
         public void go() {
             //create a panel for put the buttons on
-            frame.getContentPane().add(panel);
+            frame.getContentPane().add(BorderLayout.SOUTH,panel);
+            frame.getContentPane().add(BorderLayout.CENTER,centerPanel);
             //add ActionListener for four button
             button.addActionListener(new ButtonListener());
             backButton.addActionListener(new BackButtonListener());
@@ -103,7 +105,8 @@ public class MainGui {
             panel.add(button);
             panel.add(backButton);
             panel.add(showPaintButton);
-            panel.add(label);
+
+            centerPanel.add(label);
             //set frame size,and set the frame default close way is click the red close button
             frame.setSize(500, 600);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
