@@ -1,27 +1,23 @@
 class Solution {
-    public int romanToInt(String s) {
-        int result = 0;
-        Map<String,Integer> map = new HashMap<String,Integer>();
-        map.put("I",1);
-        map.put("V",5);
-        map.put("X",10);
-        map.put("L",50);
-        map.put("C",100);
-        map.put("D",500);
-        map.put("M",1000);
-        for (int i=0;i<s.length();i++){
-            if((i >= 1) && (map.get(s.substring(i,i+1)) > map.get(s.substring(i-1,i)))){
-                result = result + map.get(s.substring(i,i+1)) - 2 * map.get(s.substring(i-1,i));
-            }else{
-                result = result + map.get(s.substring(i,i+1));
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length == 0){return "";}
+        String result = strs[0];
+        for(int x=0;x<strs.length;x++){
+            String a = "";
+            for(int y=0;y<result.length();y++){
+                try{
+                    if (result.substring(y,y+1).equals(strs[x].substring(y,y+1))){
+                        continue;
+                    }else{
+                        result = result.substring(0,y);
+                    }}catch(Exception ex){}
             }
         }
         return result;
-
     }
     public static void main(String[] args){
         Solution solution = new Solution();
-        int a = 1345431;
-        System.out.println(solution.reverse(a));
+        String[] arga = {"aaa","aa","a"};
+        System.out.println(solution.longestCommonPrefix(arga));
     }
 }

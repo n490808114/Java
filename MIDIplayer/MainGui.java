@@ -5,6 +5,8 @@ import javax.sound.midi.ControllerEventListener;
 import javax.swing.*;
 import java.awt.*;
 import javax.sound.midi.*;
+import javax.swing.event.*;
+import javax.swing.event.ListSelectionListener;
 
 public class MainGui {
     Gui gui = new Gui();
@@ -45,26 +47,66 @@ public class MainGui {
     }
     class Gui { //the first main page
         JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-        String orderCode = "";
 
-        JLabel Label = new JLabel("You should click that button");
+        JPanel panel = new JPanel();
         JButton button = new JButton("click me!");
-        JRadioButton radioButton = new JRadioButton("µ¥Ñ¡°´Å¥");
-        JRadioButtonMenuItem radioButtonMenuItem = new JRadioButtonMenuItem("for ");
+
+        JPanel centerPanel = new JPanel();
+        JTextArea textArea = new JTextArea(10,20);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        JLabel label = new JLabel("You should click that button");
+        JButton changeLabelButton = new JButton("Change Label Button");
+
+        JPanel westPanel = new JPanel();
+        JCheckBox check = new JCheckBox("open change label button");
+        JCheckBox checkMessage = new JCheckBox("Show this checkBox text");
+        JButton addText = new JButton("addText");
+
+        JPanel westSonPanel = new JPanel();
+        String[] strings = {"North","South","West","East","Center","1","2","3","4","5","6","7","8","9","10"};
+        JList list = new JList(strings);
+        JScrollPane scrollList = new JScrollPane(list);
+
+        String orderCode = "";
 
         public void go() {
             frame.getContentPane().add(BorderLayout.SOUTH,panel);
+            frame.getContentPane().add(BorderLayout.CENTER,centerPanel);
+            frame.getContentPane().add(BorderLayout.WEST,westPanel);
 
             button.addActionListener(new ButtonListener());
 
-            panel.add(radioButton);
             panel.add(button);
-            panel.add(Label);
-            panel.add(radioButtonMenuItem);
+
+            changeLabelButton.addActionListener(new ChangeLabelButtonListener());
+            textArea.setText("please input your words!");
+            textArea.setLineWrap(true);
+            scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+            scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+            centerPanel.setLayout(new BoxLayout(centerPanel,BoxLayout.Y_AXIS));
+            centerPanel.add(label);
+            centerPanel.add(scrollPane);
+            centerPanel.add(changeLabelButton);
+
+            checkMessage.addItemListener(new CheckMessageListener());
+            addText.addActionListener(new AddTextListener());
+            scrollList.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+            scrollList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+            list.setVisibleRowCount(4);
+            list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+            list.addListSelectionListener(new ScrollListSelectionListener());
+
+            westPanel.setLayout(new BoxLayout(westPanel,BoxLayout.Y_AXIS));
+            westPanel.add(check);
+            westPanel.add(checkMessage);
+            westPanel.add(westSonPanel);
+            westSonPanel.add(scrollList);
+            westPanel.add(addText);
 
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(300, 300);
+            frame.setSize(600, 300);
+            frame.setResizable(false);
         }
 
         class ButtonListener implements ActionListener { //son class for get ActionEvent
@@ -74,6 +116,35 @@ public class MainGui {
 
                 orderCode = "getGui2";
                 frame.setVisible(false);
+            }
+        }
+        class ChangeLabelButtonListener implements ActionListener{
+            public void actionPerformed(ActionEvent event){
+                if(check.isSelected()){
+                    label.setText(textArea.getText());
+                }
+            }
+        }
+        class CheckMessageListener implements ItemListener{
+            public void itemStateChanged(ItemEvent event){
+                if(checkMessage.isSelected()){
+                    label.setText(checkMessage.getText());
+                }else{
+                    label.setText("Disable:" + checkMessage.getText());
+                }
+
+            }
+        }
+        class AddTextListener implements ActionListener{
+            public void actionPerformed(ActionEvent event){
+                textArea.append(label.getText() + "\n");
+            }
+        }
+        class ScrollListSelectionListener implements ListSelectionListener{
+            public void valueChanged(ListSelectionEvent event){
+                if(!event.getValueIsAdjusting()){
+                    textArea.append(((String) list.getSelectedValue()) + "\n");
+                }
             }
         }
     }
@@ -108,7 +179,7 @@ public class MainGui {
 
             centerPanel.add(label);
             //set frame size,and set the frame default close way is click the red close button
-            frame.setSize(500, 600);
+            frame.setSize(700, 1000);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 
