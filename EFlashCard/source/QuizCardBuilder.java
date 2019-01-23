@@ -68,6 +68,13 @@ class QuizCardBuilder{
                 }
                 objectOutputStream.close();
             }catch (Exception ex){ex.printStackTrace();}
+
+            int result = JOptionPane.showConfirmDialog(frame,"是否打开EFlashCardPlayer?","提示",JOptionPane.YES_NO_OPTION);
+            if(result == JOptionPane.YES_OPTION){
+                new QuizCardPlayer().go();
+                frame.dispose();
+            }
+            /*
             frame.remove(southPanel);
             panel.removeAll();
             JButton player = new JButton("To Player?");
@@ -76,6 +83,7 @@ class QuizCardBuilder{
             frame.setSize(200,100);
             frame.setLocation((int)((screenSize.width-frame.getWidth())/2),
                     (int)((screenSize.height-frame.getHeight())/2));
+             */
         }
     }
     class SubmitListener implements ActionListener {
@@ -87,8 +95,7 @@ class QuizCardBuilder{
     }
     class PlayerListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            new QuizCardPlayer().go();
-            frame.dispose();
+
         }
     }
 }
