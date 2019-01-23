@@ -14,11 +14,6 @@ class QuizCardBuilder{
     private JTextArea answerArea = new JTextArea(10,45);
     private JButton submit = new JButton("提交");
 
-    private JFrame saveMenuItemFrame = new JFrame();
-    private JLabel saveMenuItemLabel = new JLabel("文件名");
-    private JTextField saveMenuItemTextField = new JTextField();
-    private JButton saveMenuItemButton = new JButton("保存");
-
     private ArrayList<QuizCard> quizCardArrayList = new ArrayList<>();
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -64,25 +59,10 @@ class QuizCardBuilder{
     }
     class SaveMenuListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            saveMenuItemFrame.getContentPane().add(BorderLayout.NORTH,saveMenuItemLabel);
-            saveMenuItemFrame.getContentPane().add(BorderLayout.CENTER,saveMenuItemTextField);
-            saveMenuItemFrame.getContentPane().add(BorderLayout.SOUTH,saveMenuItemButton);
-
-            saveMenuItemButton.addActionListener(new SaveMenuItemButtonListener());
-
-            saveMenuItemFrame.setSize(100,100);
-            saveMenuItemFrame.setLocation((int)((screenSize.getWidth()-saveMenuItemFrame.getWidth())/2),
-                    (int)((screenSize.getHeight()-saveMenuItemFrame.getHeight())/2));
-            saveMenuItemFrame.setVisible(true);
-            saveMenuItemFrame.setResizable(false);
-            saveMenuItemFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
-    }
-    class SaveMenuItemButtonListener implements ActionListener{
-        public void actionPerformed(ActionEvent event){
-            saveMenuItemFrame.setVisible(false);
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.showSaveDialog(frame);
             try {
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(saveMenuItemLabel.getText()+".ser"));
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(fileChooser.getSelectedFile()));
                 for(QuizCard quizCard : quizCardArrayList) {
                     objectOutputStream.writeObject(quizCard);
                 }
@@ -96,7 +76,6 @@ class QuizCardBuilder{
             frame.setSize(200,100);
             frame.setLocation((int)((screenSize.width-frame.getWidth())/2),
                     (int)((screenSize.height-frame.getHeight())/2));
-            saveMenuItemFrame.dispose();
         }
     }
     class SubmitListener implements ActionListener {
