@@ -6,29 +6,43 @@ import java.util.ArrayList;
 
 class QuizCardBuilder{
     private JFrame frame = new JFrame("QuizCardBuilder");
-    private JPanel panel = new JPanel();
-    private JPanel southPanel = new JPanel();
+    private Box box = new Box(BoxLayout.Y_AXIS);
     private JLabel quizLabel = new JLabel("Quiz:");
-    private JTextArea quizArea = new JTextArea(10,45);
+    private JTextArea quizArea = new JTextArea(10,50);
+
     private JLabel answerLabel = new JLabel("Answer:");
-    private JTextArea answerArea = new JTextArea(10,45);
+    private JTextArea answerArea = new JTextArea(10,50);
     private JButton submit = new JButton("提交");
 
     private ArrayList<QuizCard> quizCardArrayList = new ArrayList<>();
 
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     void go(){
-        frame.getContentPane().add(BorderLayout.CENTER,panel);
-        frame.getContentPane().add(BorderLayout.SOUTH,southPanel);
+        frame.getContentPane().add(BorderLayout.CENTER,box);
+        frame.getContentPane().add(BorderLayout.SOUTH,submit);
 
         quizArea.setLineWrap(true);
         answerArea.setLineWrap(true);
 
-        panel.add(quizLabel);
-        panel.add(quizArea);
-        panel.add(answerLabel);
-        panel.add(answerArea);
-        southPanel.add(submit);
+        JPanel quizPanel = new JPanel();
+        JScrollPane quizScrollPane = new JScrollPane(quizArea);
+        quizScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        quizScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        quizPanel.add(BorderLayout.NORTH,quizLabel);
+        quizPanel.add(BorderLayout.SOUTH,quizScrollPane);
+
+        JPanel answerPanel = new JPanel();
+        JScrollPane answerScrollPane = new JScrollPane(answerArea);
+        answerScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        answerScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        answerPanel.add(BorderLayout.NORTH,answerLabel);
+        answerPanel.add(BorderLayout.SOUTH,answerScrollPane);
+
+        box.add(Box.createVerticalStrut(10));
+        box.add(quizPanel);
+        box.add(Box.createVerticalStrut(20));
+        box.add(answerPanel);
+        box.add(Box.createVerticalStrut(10));
 
         submit.addActionListener(new SubmitListener());
 
@@ -44,8 +58,8 @@ class QuizCardBuilder{
 
         frame.setJMenuBar(menuBar);
         frame.setSize(500,450);
-        frame.setLocation((int)((screenSize.width-frame.getWidth())/2),
-                                (int)((screenSize.height-frame.getHeight())/2));
+        frame.setLocation((screenSize.width-frame.getWidth())/2,
+                                (screenSize.height-frame.getHeight())/2);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
@@ -74,16 +88,6 @@ class QuizCardBuilder{
                 new QuizCardPlayer().go();
                 frame.dispose();
             }
-            /*
-            frame.remove(southPanel);
-            panel.removeAll();
-            JButton player = new JButton("To Player?");
-            player.addActionListener(new PlayerListener());
-            panel.add(player);
-            frame.setSize(200,100);
-            frame.setLocation((int)((screenSize.width-frame.getWidth())/2),
-                    (int)((screenSize.height-frame.getHeight())/2));
-             */
         }
     }
     class SubmitListener implements ActionListener {
@@ -91,11 +95,6 @@ class QuizCardBuilder{
             quizCardArrayList.add(new QuizCard(quizArea.getText(),answerArea.getText()));
             quizArea.setText("");
             answerArea.setText("");
-        }
-    }
-    class PlayerListener implements ActionListener{
-        public void actionPerformed(ActionEvent event){
-
         }
     }
 }

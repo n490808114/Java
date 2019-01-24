@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -6,71 +7,33 @@ import java.util.ArrayList;
 
 class QuizCardPlayer{
     private JFrame frame = new JFrame("Quiz Card Player");
+    private JLabel label = new JLabel();
+    private JTextArea textArea = new JTextArea(10,40);
+    private JButton nextButton = new JButton();
 
-    private JPanel quizPanel = new JPanel();
-    private JLabel quizLabel = new JLabel("Quiz:");
-    private JTextArea quizArea = new JTextArea(10,22);
+    private ArrayList<QuizCard> quizCardArrayList;
+    private QuizCard quizCard;
 
-    private JPanel answerPanel =new JPanel();
-    private JLabel answerLabel = new JLabel("Answer:");
-    private JTextArea answerArea = new JTextArea(10,22);
+    //for nextButton
+    private final String SELECTE_FILE = "请打开EflashCard文件";
+    private final String SHOW_ANSWER = "Show Answer";
+    private final String NEXT_CARD = "Next Card";
 
-    private JPanel southPanel = new JPanel();
-    private JButton showAnswer = new JButton("揭晓答案");
-    private JButton changeQuiz = new JButton("显示问题");
-
-    private ArrayList<QuizCard> quizCardArrayList = new ArrayList<>();
+    private String fileChoosePath = "";
 
     void go(){
-        try {
-            FileInputStream fileInputStream = new FileInputStream("EFlashCards.ser");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            while (true) {
-                try {
-                    quizCardArrayList.add((QuizCard) objectInputStream.readObject());
-                } catch (Exception ex) { break; }
-            }
-        }catch (Exception ex){ex.printStackTrace();}
-        if(quizCardArrayList.size() == 0){ goEnd(); }else { goPlay(); }
-    }
-    private void goEnd(){
-        frame.getContentPane().add(answerPanel);
-        answerPanel.add(answerArea);
-        answerArea.setText("未找到文件名为\"EFlashCards.ser\"的文件,请手动选择文件或重新打开程序添加问题");
+        frame.getContentPane().add(BorderLayout.NORTH,label);
+        frame.getContentPane().add(BorderLayout.SOUTH, nextButton);
+        frame.getContentPane().add(BorderLayout.CENTER,textArea);
 
-        frame.setSize(300,300);
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setLocation((int)((screenSize.getWidth()-frame.getWidth())/2),
-                (int)((screenSize.getHeight()-frame.getHeight())/2));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.setResizable(false);
-    }
-    private void goPlay(){
-        frame.getContentPane().add(BorderLayout.WEST, quizPanel);
-        frame.getContentPane().add(BorderLayout.EAST, answerPanel);
-        frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
 
-        quizPanel.setLayout(new BorderLayout());
-        quizPanel.add(BorderLayout.NORTH,quizLabel);
-        quizPanel.add(BorderLayout.CENTER,quizArea);
-        quizArea.setLineWrap(true);
-        quizArea.setWrapStyleWord(true);
+        nextButton.setEnabled(false);
+        nextButton.setText(SELECTE_FILE);
+        nextButton.addActionListener(new NextListener());
 
-        answerPanel.setLayout(new BorderLayout());
-        answerPanel.add(BorderLayout.NORTH,answerLabel);
-        answerPanel.add(BorderLayout.CENTER,answerArea);
-        answerArea.setLineWrap(true);
-        answerArea.setWrapStyleWord(true);
-
-        southPanel.add(showAnswer);
-        southPanel.add(changeQuiz);
-
-        showAnswer.addActionListener(new ShowAnswerListener());
-        changeQuiz.addActionListener(new ChangeQuizListener());
-
-        quizArea.setText("现有问题数为： " + quizCardArrayList.size()+" !\n请点击“显示问题”!");
-
+        //frame settings
         frame.setSize(500, 300);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setLocation((int)((screenSize.getWidth()-frame.getWidth())/2),
@@ -78,23 +41,72 @@ class QuizCardPlayer{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
+
+        //MeauBar
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("文件");
+        JMenuItem openFile = new JMenuItem("打开");
+
+        frame.setJMenuBar(menuBar);
+        menuBar.add(fileMenu);
+        fileMenu.add(openFile);
+
+        openFile.addActionListener(new OpenFileListener());
     }
-    class ShowAnswerListener implements ActionListener {
-        public void actionPerformed(ActionEvent event){
-            String quiz = quizArea.getText();
-            for(QuizCard quizCard : quizCardArrayList){
-                if(quizCard.getQuiz().equals(quiz)){
-                    answerArea.setText(quizCard.getAnswer());
-                    break;
-                }
+    private void showQuizArea(){
+        label.setText("Question:");
+        textArea.setText(quizCard.getQuiz());
+        nextButton.setText(SHOW_ANSWER);
+    }
+    private void showAnswerArea(){
+        label.setText("Answer:");
+        textArea.setText(quizCard.getAnswer());
+        nextButton.setText(NEXT_CARD);
+    }
+    private ArrayList<QuizCard> getCardList(File file){
+        ArrayList<QuizCard> result = new ArrayList<>();
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            while(true){
+                try {
+                    result.add((QuizCard) objectInputStream.readObject());
+                }catch (Exception ex){break;}
             }
+        }catch (Exception ex){ex.printStackTrace();}
+        return result;
+    }
+    class OpenFileListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            JFileChooser fileChooser = new JFileChooser(fileChoosePath);
+            fileChooser.setFileFilter(new FileNameExtensionFilter("ser","ser"));
+            fileChooser.showOpenDialog(frame);
+
+            File file = fileChooser.getSelectedFile();
+            quizCardArrayList = getCardList(file);
+            fileChoosePath = file.getPath();
+
+            quizCard = quizCardArrayList.get(0);
+            nextButton.setEnabled(true);
+            showQuizArea();
         }
     }
-    class ChangeQuizListener implements ActionListener{
+    class NextListener implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            if(changeQuiz.getText().equals("显示问题")){changeQuiz.setText("下一个问题");}
-            int index = (int) (Math.random() * quizCardArrayList.size());
-            quizArea.setText(quizCardArrayList.get(index).getQuiz());
+            if(SHOW_ANSWER.equals(nextButton.getText())){
+                showAnswerArea();
+            }else if(NEXT_CARD.equals(nextButton.getText())){
+                try {
+                    quizCard = quizCardArrayList.get(quizCardArrayList.indexOf(quizCard) + 1);
+                    showQuizArea();
+                }catch (Exception ex){
+                    label.setText("");
+                    textArea.setText("");
+                    nextButton.setText(SELECTE_FILE);
+                    nextButton.setEnabled(false);
+                    JOptionPane.showMessageDialog(frame,"No More Questions","提示",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
         }
     }
 }

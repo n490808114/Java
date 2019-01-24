@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EFlashCard:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EFlashCard_jar</output-path>
+    <root id="archive" name="EFlashCard.jar">
+      <element id="module-output" name="EFlashCard" />
+    </root>
+  </artifact>
+</component>
