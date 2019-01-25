@@ -7,18 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3c6c7d6-388c-4275-9caa-94de5f9fecf9" name="Default Changelist" comment="第一次完成一个具有UI的程序，打开之后选择Builder或者player,去创建或者使用EFlashCard">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/EFlashCard_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EFlashCard.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/a.ser" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/EFlashCard_jar/EFlashCard.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/EFlashCard/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EFlashCards.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/QuizCardBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/QuizCardBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/QuizCardPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/QuizCardPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/文件名.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MIDIplayer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/BeatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MIDIplayer/source/BeatBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/Gui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/MIDIplayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MIDIplayer/MIDIplayer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/MainGui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/Music.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/Solution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/lightblue.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/.idea/.idea.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/dictionaries/49080.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/MIDIplayer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MIDIplayer/out/production/MIDIplayer/lightblue.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,20 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/QuizCardBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="33" column="42" lean-forward="true" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/QuizCardPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
+            <state relative-caret-position="41">
+              <caret line="78" column="53" lean-forward="true" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,11 +51,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/QuizCardBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/QuizCard.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -79,8 +90,8 @@
       <list>
         <option value="$PROJECT_DIR$/source/QuizCard.java" />
         <option value="$PROJECT_DIR$/source/EFlashCard.java" />
-        <option value="$PROJECT_DIR$/source/QuizCardPlayer.java" />
         <option value="$PROJECT_DIR$/source/QuizCardBuilder.java" />
+        <option value="$PROJECT_DIR$/source/QuizCardPlayer.java" />
       </list>
     </option>
   </component>
@@ -98,6 +109,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,19 +119,24 @@
             </path>
             <path>
               <item name="EFlashCard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EFlashCard" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EFlashCard" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548321697145" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548324342064" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
@@ -161,6 +178,14 @@
       <option name="presentableId" value="Default" />
       <updated>1548224259021</updated>
     </task>
+    <task id="LOCAL-00001" summary="第一次完成一个具有UI的程序，打开之后选择Builder或者player,去创建或者使用EFlashCard">
+      <created>1548321756707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548321756707</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -172,7 +197,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.2594697" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2689394" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -184,7 +209,7 @@
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
       <window_info anchor="right" id="Theme Preview" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -234,23 +259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/QuizCardPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="106" column="51" selection-start-line="106" selection-start-column="51" selection-end-line="106" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/QuizCardBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="33" column="42" lean-forward="true" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/a.ser">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -261,7 +269,24 @@
     <entry file="file://$PROJECT_DIR$/source/QuizCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/QuizCardBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="86" column="49" lean-forward="true" selection-start-line="86" selection-start-column="49" selection-end-line="86" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/QuizCardPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="78" column="53" lean-forward="true" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -324,6 +349,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
