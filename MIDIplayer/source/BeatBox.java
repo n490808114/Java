@@ -1,5 +1,6 @@
 import javax.sound.midi.*;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -201,28 +202,28 @@ public class BeatBox{
     }
     class RestoreListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            Boolean[] checkboxList;
             JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileFilter(new FileNameExtensionFilter("ser ans so on","ser"));
             fileChooser.showOpenDialog(theFrame);
-            //fileChooser.setFileFilter(new FileNameExtensionFilter("ser ans so on","ser"));
-            try{
-                ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(fileChooser.getSelectedFile()));
-                checkboxList = (Boolean[]) objectInputStream.readObject();
-                objectInputStream.close();
-                for(int i=0;i<256;i++){
-                    if(checkboxList[i]){
-                        checkBoxArrayList.get(i).setSelected(true);
-                    }else{
-                        checkBoxArrayList.get(i).setSelected(false);
-                    }
+            File file = fileChooser.getSelectedFile();
+            Boolean[] checkboxStateList = getList(file);
+            for (int i=0;i<256;i++)
+                if (checkboxStateList[i]) {
+                    checkBoxArrayList.get(i).setSelected(true);
+                } else {
+                    checkBoxArrayList.get(i).setSelected(false);
                 }
-            }catch (Exception ex){
-                System.out.println("can`t read CheckBoxArrayList");
-                ex.printStackTrace();
-            }
-
             sequencer.stop();
             bulidTrackAndStart();
+        }
+        private Boolean[] getList(File file){
+            Boolean[] result =null;
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                result =(Boolean[]) objectInputStream.readObject();
+            }catch (Exception ex){ex.printStackTrace();}
+            return result;
         }
     }
 }
