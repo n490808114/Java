@@ -8,10 +8,6 @@ import java.util.ArrayList;
 
 public class BeatBox{
     private JFrame theFrame;
-    private JPanel mainPanel;
-    private JPanel background;
-    private Box buttonBox;
-    private Box nameBox;
     private JLabel state;
 
     private ArrayList<JCheckBox> checkBoxArrayList;
@@ -33,7 +29,14 @@ public class BeatBox{
 
     private void bulidGUI(){
         checkBoxArrayList = new ArrayList<>();
+        //============================================================================
+        JPanel mainPanel;
+        JPanel background;
+        Box buttonBox;
+        Box nameBox;
+        //============================================================================
         //----------------------------------------------------------------------------
+
 
         buttonBox = new Box(BoxLayout.Y_AXIS);
 
@@ -69,8 +72,6 @@ public class BeatBox{
         buttonBox.add(restore);
         buttonBox.add(Box.createVerticalStrut(10));
 
-
-
         //------------------------------------------------------------------------------
 
         nameBox = new Box(BoxLayout.Y_AXIS);
@@ -99,8 +100,11 @@ public class BeatBox{
         background.add(BorderLayout.CENTER,mainPanel);
         background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));//…Ë÷√±ﬂ‘µ
 
-
         setUpMidi();
+        try{
+            int[] eventIWant = {127};
+            sequencer.addControllerEventListener(new ControllerListener(),eventIWant);
+        }catch (Exception ex){ex.printStackTrace();}
 
         theFrame = new JFrame("Beat Box");//øÚº‹
         theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//πÿ±’∞¥≈•πÿ±’øÚº‹
@@ -120,12 +124,12 @@ public class BeatBox{
             sequencer.setTempoInBPM(120);
         }catch (Exception ex){ex.printStackTrace();}
     }
-    private void bulidTrackAndStart(){
+    private void buildTrackAndStart(){
         int[] trackList;
 
         sequence.deleteTrack(track);
         track = sequence.createTrack();
-
+        //track.add(makeEvent(176,1,126,0,1));
         for(int i=0;i<16;i++){
             trackList = new int[16];
             int key = instruments[i];
@@ -139,8 +143,9 @@ public class BeatBox{
                 }
             }
             makeTracks(trackList);
-            track.add(makeEvent(176,1,127,0,16));
+
         }
+        track.add(makeEvent(176,1,127,0,16));
         try {
             sequencer.setSequence(sequence);
             sequencer.start();
@@ -148,6 +153,8 @@ public class BeatBox{
             System.out.println("Can`t play sequencer");
             ex.printStackTrace();
         }
+        state.setText("Playing...");
+        state.setForeground(Color.GREEN);
     }
     private void makeTracks(int[] list){
         for(int i=0;i<16;i++){
@@ -167,15 +174,50 @@ public class BeatBox{
         }catch (Exception ex){ex.printStackTrace();}
         return result;
     }
+    private void save(){
+        Boolean[] checkboxStateList = new Boolean[256];
+        for(int i=0;i<256;i++){
+            checkboxStateList[i] = checkBoxArrayList.get(i).isSelected();
+        }
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.showSaveDialog(theFrame);
+        try {
+            ObjectOutputStream objectOutput = new ObjectOutputStream(new FileOutputStream(fileChooser.getSelectedFile()));
+            objectOutput.writeObject(checkboxStateList);
+            objectOutput.close();
+        }catch (Exception ex){
+            System.out.println("Can`t save checkboxArrayList");
+            ex.printStackTrace();
+        }
+    }
+    private void readFile(){
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("ser","ser"));
+        fileChooser.showOpenDialog(theFrame);
+
+        try {
+            ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream(fileChooser.getSelectedFile()));
+            Boolean[] checkboxStateList =(Boolean[]) objectInput.readObject();
+            objectInput.close();
+            for(int i=0;i<256;i++){
+                if(checkboxStateList[i]){
+                    checkBoxArrayList.get(i).setSelected(true);
+                }else{
+                    checkBoxArrayList.get(i).setSelected(false);
+                }
+            }
+        }catch (Exception ex){
+            System.out.println("can`t read ser");
+            ex.printStackTrace();
+        }
+    }
     class StartListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
             if(sequencer.isRunning()){
                 sequencer.stop();
             }
             setUpMidi();
-            bulidTrackAndStart();
-            state.setText("Playing...");
-            state.setForeground(Color.GREEN);
+            buildTrackAndStart();
         }
     }
     class StopListener implements ActionListener{
@@ -183,7 +225,6 @@ public class BeatBox{
             sequencer.stop();
             state.setText("STOP!");
             state.setForeground(Color.RED);
-
         }
     }
     class UpTempoListener implements ActionListener{
@@ -199,50 +240,26 @@ public class BeatBox{
         }
     }
     class SerializeltListener implements ActionListener{
-        public void actionPerformed(ActionEvent event){
-            Boolean[] checkboxStateList = new Boolean[256];
-            for(int i=0;i<256;i++){
-                checkboxStateList[i] = checkBoxArrayList.get(i).isSelected();
-            }
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.showSaveDialog(theFrame);
-            try {
-                ObjectOutputStream objectOutput = new ObjectOutputStream(new FileOutputStream(fileChooser.getSelectedFile()));
-                objectOutput.writeObject(checkboxStateList);
-                objectOutput.close();
-            }catch (Exception ex){
-                System.out.println("Can`t save checkboxArrayList");
-                ex.printStackTrace();
-            }
-
-
-        }
+        public void actionPerformed(ActionEvent event){ save(); }
     }
     class RestoreListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setFileFilter(new FileNameExtensionFilter("ser","ser"));
-            fileChooser.showOpenDialog(theFrame);
-
-            try {
-                ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream(fileChooser.getSelectedFile()));
-                Boolean[] checkboxStateList =(Boolean[]) objectInput.readObject();
-                objectInput.close();
-                for(int i=0;i<256;i++){
-                    if(checkboxStateList[i]){
-                        checkBoxArrayList.get(i).setSelected(true);
-                    }else{
-                        checkBoxArrayList.get(i).setSelected(false);
-                    }
-                }
-            }catch (Exception ex){
-                System.out.println("can`t read ser");
-                ex.printStackTrace();
-            }
-
+            readFile();
             sequencer.stop();
-            bulidTrackAndStart();
+            buildTrackAndStart();
         }
-
+    }
+    class ControllerListener implements ControllerEventListener{
+        public void controlChange(ShortMessage event){
+            System.out.println("lalalalal");
+            if (event.getData1() == 126){
+                state.setText("Playing...");
+                state.setForeground(Color.GREEN);
+            }
+            if (event.getData1() == 127){
+                state.setText("STOP!");
+                state.setForeground(Color.RED);
+            }
+        }
     }
 }
