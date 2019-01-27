@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c43f886-ca12-40dc-bbbf-b17d022c8413" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../EFlashCard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EFlashCard/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DailyAdvice/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DailyAdvice/src/DailyAdviceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DailyAdvice/src/DailyAdviceServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BeatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/BeatBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gui.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MIDIplayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MIDIplayer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainGui.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lightblue.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/.idea/.idea.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/dictionaries/49080.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/MIDIplayer.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/lightblue.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MIDIplayer/META-INF/MIDIplayer.kotlin_module" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,6 +14,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MIDIplayer$BeatBox.ic" NAME="BeatBox Coverage Results" MODIFIED="1548468741699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="MIDIplayer" />
@@ -41,12 +26,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/BeatBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="208" column="47" selection-start-line="208" selection-start-column="47" selection-end-line="208" selection-end-column="47" />
+            <state relative-caret-position="78">
+              <caret line="149" column="44" selection-start-line="149" selection-start-column="44" selection-end-line="149" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#682#683#0" expanded="true" />
-                <element signature="e#722#723#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,8 +87,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="109" />
-    <option name="y" value="277" />
+    <option name="x" value="149" />
+    <option name="y" value="247" />
     <option name="width" value="1116" />
     <option name="height" value="685" />
   </component>
@@ -138,13 +121,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548405449137" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548478610234" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -220,6 +203,21 @@
       <option name="presentableId" value="Default" />
       <updated>1547170474610</updated>
     </task>
+    <task id="LOCAL-00001" summary="Version0.11">
+      <created>1548470472438</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548470472438</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Version0.12&#10;添加了状态显示，缺少一个播放器的监控">
+      <created>1548476531274</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1548476531274</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -232,20 +230,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="109" y="277" width="1116" height="685" extended-state="0" />
-    <editor active="true" />
+    <frame x="149" y="247" width="1116" height="685" extended-state="0" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.5009074" side_tool="true" weight="0.24810606" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.6542751" visible="true" weight="0.2717803" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.6542751" visible="true" weight="0.30492425" />
       <window_info id="Structure" order="6" sideWeight="0.3457249" side_tool="true" weight="0.25757575" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49905303" visible="true" weight="0.26704547" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39772728" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49905303" weight="0.4573055" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3975771" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32997987" />
@@ -261,7 +258,13 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.3298969" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Version0.11" />
+    <MESSAGE value="Version0.12&#10;添加了状态显示，缺少一个播放器的监控" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version0.12&#10;添加了状态显示，缺少一个播放器的监控" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -294,23 +297,8 @@
     <entry file="file://$PROJECT_DIR$/out/Solution.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Music.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Gui.java" />
+    <entry file="file://$PROJECT_DIR$/Music.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/java/awt/event/ItemListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -318,25 +306,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4564#4565#0" expanded="true" />
-            <element signature="e#4599#4600#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MainGui.java" />
+    <entry file="file://$PROJECT_DIR$/Solution.java" />
     <entry file="file://$PROJECT_DIR$/out/BeatBox.java" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.desktop/javax/swing/JFrame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -347,12 +318,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/BeatBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="208" column="47" selection-start-line="208" selection-start-column="47" selection-end-line="208" selection-end-column="47" />
+        <state relative-caret-position="78">
+          <caret line="149" column="44" selection-start-line="149" selection-start-column="44" selection-end-line="149" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
           </folding>
         </state>
       </provider>
