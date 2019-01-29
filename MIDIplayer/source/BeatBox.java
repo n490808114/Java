@@ -308,7 +308,9 @@ public class BeatBox{
 
     }
     class LoginInListener implements ActionListener{
-        public void actionPerformed(ActionEvent event){}
+        public void actionPerformed(ActionEvent event){
+
+        }
     }
     class StartListener implements ActionListener{
         public void actionPerformed(ActionEvent event){

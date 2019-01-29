@@ -1,10 +1,18 @@
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChatRoomServer {
-    private ArrayList<Account> accounts;
-    private ArrayList<Boolean> accountsStates;
+    private Map<Account,Boolean> accountStates;
+
+    ChatRoom chatRoom;
+
+    ChatRoomServer(){
+        accountStates = new HashMap<>();
+        chatRoom = new ChatRoom();
+    }
 
     void go(){
         try {
@@ -16,26 +24,10 @@ public class ChatRoomServer {
         }catch (Exception ex){ex.printStackTrace();}
     }
     private Boolean loginIn(String n,String p){
-        for(Account account:accounts){
-            if (n.equals(account.getName())){
-                if(account.check(n,p)){
-                    accountsStates.set(accounts.indexOf(account),true);
-                    return true;
-                }
-            }else{
-                return false;
-            }
-        }
         return false;
     }
     private Boolean loginUp(String n,String p){
-        for(Account account:accounts){
-            if(account.getName().equals(n)){
-                return false;
-            }
-        }
-        accounts.add(new Account(n,p));
-        return true;
+        return false;
     }
 }
 class ChatRoom implements Serializable {
