@@ -16,12 +16,17 @@ public class BeatBox{
     private Sequence sequence;
     private Track track;
 
+    private JTextArea messageText;
+    private JTextArea sendText;
 
     private String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat",
         "Open Hi-Hat","Acoustic snare","Crash Cymbal","Hand Clap",
         "High Tom","Hi Bongo","Maracas","Whistle","Low Conga",
         "Cowball","Vibraslap","Low-mid Tom","High Agogo","Open Hi Conga"};
     private int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
+
+    private Boolean isLoginIn = false;
+    private ChatRoomClient client;
 
     public static void main(String[] args){
         new BeatBox().bulidGUI();
@@ -32,14 +37,18 @@ public class BeatBox{
         //============================================================================
         JPanel mainPanel;
         JPanel background;
-        Box buttonBox;
+
         Box nameBox;
+
+        Box eastBox;
+        Box buttonBox;
+        Box clientBox;
         //============================================================================
         //----------------------------------------------------------------------------
-
+        eastBox = new Box(BoxLayout.X_AXIS);
 
         buttonBox = new Box(BoxLayout.Y_AXIS);
-
+        buttonBox.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         JButton start = new JButton("ø™ º≤•∑≈");
         start.addActionListener(new StartListener());
         buttonBox.add(start);
@@ -71,6 +80,39 @@ public class BeatBox{
         restore.addActionListener(new RestoreListener());
         buttonBox.add(restore);
         buttonBox.add(Box.createVerticalStrut(10));
+        //==============================================================================
+        clientBox = new Box(BoxLayout.Y_AXIS);
+
+        clientBox.add(Box.createHorizontalStrut(100));
+        JLabel clientTitle = new JLabel("Chat Room");
+        clientBox.add(clientTitle);
+        clientBox.add(Box.createVerticalStrut(10));
+
+        messageText = new JTextArea(20,40);
+        JScrollPane messageScroll = new JScrollPane(messageText);
+        messageText.setLineWrap(true);
+        messageScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        messageScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        clientBox.add(messageScroll);
+        clientBox.add(Box.createVerticalStrut(5));
+
+        sendText = new JTextArea(2,40);
+        JScrollPane sendScroll = new JScrollPane(sendText);
+        sendText.setLineWrap(true);
+        sendScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        sendScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        clientBox.add(sendScroll);
+        clientBox.add(Box.createVerticalStrut(3));
+
+        clientBox.add(Box.createHorizontalStrut(100));
+        JButton sendButton = new JButton("Send");
+        sendButton.addActionListener(new SendListener());
+        clientBox.add(sendButton);
+        clientBox.setBackground(Color.GRAY);
+
+
+        eastBox.add(buttonBox);
+        eastBox.add(clientBox);
 
         //------------------------------------------------------------------------------
 
@@ -96,11 +138,14 @@ public class BeatBox{
 
         background = new JPanel(new BorderLayout());
         background.add(BorderLayout.WEST,nameBox);
-        background.add(BorderLayout.EAST,buttonBox);
+        background.add(BorderLayout.EAST,eastBox);
         background.add(BorderLayout.CENTER,mainPanel);
         background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));//…Ë÷√±ﬂ‘µ
 
+
+
         setUpMidi();
+
         try{
             int[] eventIWant = {127};
             sequencer.addControllerEventListener(new ControllerListener(),eventIWant);
@@ -211,6 +256,60 @@ public class BeatBox{
             ex.printStackTrace();
         }
     }
+    private void showLoginInGui(){
+        JFrame loginInFrame = new JFrame("µ«¬Ω");
+        JPanel loginInPanel = new JPanel();
+        loginInFrame.getContentPane().add(loginInPanel);
+        loginInPanel.setLayout(new BorderLayout());
+
+        JLabel loginInTitle = new JLabel("«Î ‰»Î’ ∫≈∫Õ√‹¬Î£∫");
+
+        Box loginInContentBox = new Box(BoxLayout.Y_AXIS);
+        loginInContentBox.setBorder(BorderFactory.createEmptyBorder(30,10,10,10));
+        JPanel loginInNamePanel  = new JPanel();
+        JLabel loginInNameLabel = new JLabel("’ ∫≈£∫");
+        JTextArea loginInNameArea = new JTextArea(1,20);
+        loginInNameArea.setLineWrap(true);
+        JScrollPane loginInNameScroll = new JScrollPane(loginInNameArea);
+        loginInNameScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        loginInNameScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        loginInNamePanel.add(loginInNameLabel);
+        loginInNamePanel.add(loginInNameScroll);
+
+        JPanel loginInPasswordPanel  = new JPanel();
+        JLabel loginInPasswordLabel = new JLabel("’ ∫≈£∫");
+        JTextArea loginInPasswordArea = new JTextArea(1,20);
+        loginInPasswordArea.setLineWrap(true);
+        JScrollPane loginInPasswordScroll = new JScrollPane(loginInPasswordArea);
+        loginInPasswordScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        loginInPasswordScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        loginInPasswordPanel.add(loginInPasswordLabel);
+        loginInPasswordPanel.add(loginInPasswordScroll);
+
+        loginInContentBox.add(loginInNamePanel);
+        loginInContentBox.add(loginInPasswordPanel);
+
+        Box loginInButtonBox = new Box(BoxLayout.X_AXIS);
+        JButton loginInButton = new JButton("µ«¬Ω");
+        loginInButton.addActionListener(new LoginInListener());
+        loginInButtonBox.add(Box.createHorizontalStrut(110));
+        loginInButtonBox.add(loginInButton);
+
+        loginInPanel.add(BorderLayout.NORTH,loginInTitle);
+        loginInPanel.add(BorderLayout.CENTER,loginInContentBox);
+        loginInPanel.add(BorderLayout.SOUTH,loginInButtonBox);
+
+        loginInFrame.setSize(300,200);
+        int loginInFrameX = theFrame.getX() + (theFrame.getWidth() - loginInFrame.getWidth()) / 2;
+        int loginInFrameY = theFrame.getY() + (theFrame.getHeight() - loginInFrame.getHeight()) / 2;
+        loginInFrame.setLocation(loginInFrameX,loginInFrameY);
+        loginInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginInFrame.setVisible(true);
+
+    }
+    class LoginInListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){}
+    }
     class StartListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
             if(sequencer.isRunning()){
@@ -259,6 +358,16 @@ public class BeatBox{
             if (event.getData1() == 127){
                 state.setText("STOP!");
                 state.setForeground(Color.RED);
+            }
+        }
+    }
+    class SendListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            if(isLoginIn){
+                client.message = sendText.getText();
+                sendText.setText("");
+            }else{
+                showLoginInGui();
             }
         }
     }
