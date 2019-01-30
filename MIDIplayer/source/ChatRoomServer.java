@@ -6,11 +6,14 @@ import java.util.Map;
 
 public class ChatRoomServer {
     private Map<Account,Boolean> accountStates;
-
-    ChatRoom chatRoom;
+    private ArrayList<String> chatMessages;
+    private ArrayList<Account> accounts;
+    private ChatRoom chatRoom;
+    private String[] messageGeted;
 
     ChatRoomServer(){
         accountStates = new HashMap<>();
+        accounts = new ArrayList<>();
         chatRoom = new ChatRoom();
     }
 
@@ -19,9 +22,27 @@ public class ChatRoomServer {
             ServerSocket server = new ServerSocket(5250);
 
             while(true){
+                Socket socket = server.accept();
 
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                writer.write(getNewestChatMessage());
+                writer.close();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                StringBuffer str = new StringBuffer();
+                while (true){
+                    String a = reader.readLine();
+                    if("".equals(a)){break;}
+                    str.append(a);
+                }
+                reader.close();
+                messageGeted = str.toString().split("|||");
             }
         }catch (Exception ex){ex.printStackTrace();}
+    }
+    private String getNewestChatMessage(){
+
+        return "";
     }
     private Boolean loginIn(String n,String p){
         return false;

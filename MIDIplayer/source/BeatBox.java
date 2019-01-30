@@ -3,6 +3,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.ColorModel;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -134,13 +135,22 @@ public class BeatBox{
             mainPanel.add(a);
         }
 
+        JPanel titlePanel = new JPanel();
+        JLabel mainTitle = new JLabel("当前登录账户为：");
+        JLabel userNameMainPage = new JLabel("无");
+        userNameMainPage.setForeground(Color.RED);
+        titlePanel.add(mainTitle);
+        titlePanel.add(userNameMainPage);
+
         //--------------------------------------------------------------------------------------
 
         background = new JPanel(new BorderLayout());
+        background.add(BorderLayout.NORTH,titlePanel);
         background.add(BorderLayout.WEST,nameBox);
         background.add(BorderLayout.EAST,eastBox);
         background.add(BorderLayout.CENTER,mainPanel);
         background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));//设置边缘
+        titlePanel.setBackground(new Color(38,178,206));
 
 
 
