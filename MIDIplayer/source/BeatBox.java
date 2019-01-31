@@ -3,7 +3,6 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.ColorModel;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -27,10 +26,24 @@ public class BeatBox{
     private int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
 
     private Boolean isLoginIn = false;
-    private ChatRoomClient client;
+
+    volatile String message = "";
 
     public static void main(String[] args){
-        new BeatBox().bulidGUI();
+        Runnable client = new ChatRoomClient();
+        Thread clientThread = new Thread(client);
+        clientThread.start();
+        BeatBox beatBox = new BeatBox();
+        beatBox.bulidGUI();
+        while (true){
+            System.out.println("BeatBox:"+beatBox.message);
+            System.out.println("BeatBox client:"+((ChatRoomClient) client).message);
+            ((ChatRoomClient) client).message = beatBox.message;
+            beatBox.message = ((ChatRoomClient) client).message;
+            try{
+                Thread.sleep(500);
+            }catch (Exception ex){ex.printStackTrace();}
+        }
     }
 
     private void bulidGUI(){
@@ -150,7 +163,7 @@ public class BeatBox{
         background.add(BorderLayout.EAST,eastBox);
         background.add(BorderLayout.CENTER,mainPanel);
         background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));//…Ë÷√±ﬂ‘µ
-        titlePanel.setBackground(new Color(38,178,206));
+        titlePanel.setBackground(new Color(22, 122, 89, 126));
 
 
 
@@ -375,8 +388,8 @@ public class BeatBox{
     }
     class SendListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            if(isLoginIn){
-                client.message = sendText.getText();
+            if(!isLoginIn){
+                message = sendText.getText();
                 sendText.setText("");
             }else{
                 showLoginInGui();

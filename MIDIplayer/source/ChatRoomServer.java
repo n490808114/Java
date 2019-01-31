@@ -16,6 +16,9 @@ public class ChatRoomServer {
         accounts = new ArrayList<>();
         chatRoom = new ChatRoom();
     }
+    public static void main(String[] args){
+        new ChatRoomServer().go();
+    }
 
     void go(){
         try {
@@ -24,9 +27,9 @@ public class ChatRoomServer {
             while(true){
                 Socket socket = server.accept();
 
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                writer.write(getNewestChatMessage());
-                writer.close();
+                //BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+                //writer.write(getNewestChatMessage());
+                //writer.close();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 StringBuffer str = new StringBuffer();
@@ -35,8 +38,12 @@ public class ChatRoomServer {
                     if("".equals(a)){break;}
                     str.append(a);
                 }
+
+                System.out.println("client:"+str.toString());
+                chatMessages.add("result:" + str.toString());
+                messageGeted = str.toString().split("|");
                 reader.close();
-                messageGeted = str.toString().split("|||");
+                socket.close();
             }
         }catch (Exception ex){ex.printStackTrace();}
     }
