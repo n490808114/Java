@@ -1,23 +1,24 @@
+package Server;
+
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChatRoomServer {
+public class Server {
     private Map<Account,Boolean> accountStates;
-    private ArrayList<String> chatMessages;
     private ArrayList<Account> accounts;
-    private ChatRoom chatRoom;
+    private ChatMessage chatMessages;
     private String[] messageGeted;
 
-    ChatRoomServer(){
+    Server(){
         accountStates = new HashMap<>();
         accounts = new ArrayList<>();
-        chatRoom = new ChatRoom();
+        chatMessages = new ChatMessage();
     }
     public static void main(String[] args){
-        new ChatRoomServer().go();
+        new Server().go();
     }
 
     void go(){
@@ -58,48 +59,4 @@ public class ChatRoomServer {
         return false;
     }
 }
-class ChatRoom implements Serializable {
-    private ArrayList<String> chatMessages;
-    private final int SAVE_CHAT_EVERY = 10;
-    private int saveChatNums = 0;
 
-    ChatRoom(){
-        chatMessages = new ArrayList<>();
-    }
-
-    Boolean addMessage(String message){
-        chatMessages.add(message);
-
-        saveChatNums += 1;
-        if (saveChatNums == SAVE_CHAT_EVERY){
-            saveChatMessages();
-        }
-        return true;
-    }
-    ArrayList<String> getChatMessages(){
-        return chatMessages;
-    }
-    private void saveChatMessages(){
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Messages.txt"));
-            for(String str :chatMessages){
-                writer.write(str);
-            }
-            writer.close();
-        }catch (Exception ex){ex.printStackTrace();}
-    }
-}
-class Account{
-    private String name;
-    private String password;
-    Account(String n,String p){
-        name = n;
-        password = p;
-    }
-    String getName() {
-        return name;
-    }
-    Boolean check(String n,String p){
-        return name.equals(n) && password.equals(p);
-    }
-}
