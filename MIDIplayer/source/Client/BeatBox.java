@@ -1,5 +1,7 @@
 package Client;
 
+import com.google.gson.Gson;
+
 import javax.sound.midi.*;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -9,6 +11,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class BeatBox{
+    //------for GUI--------------------------------------------------------------------
     private JFrame theFrame;
     private JLabel state;
 
@@ -20,15 +23,21 @@ public class BeatBox{
 
     private JTextArea messageText;
     private JTextArea sendText;
-
+    private JTextArea loginInNameArea;
+    private JTextArea loginInPasswordArea;
+    //----------------------------------------------------------------------------------
+    //------------for MIDIPlayer--------------------------------------------------------
     private String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat",
         "Open Hi-Hat","Acoustic snare","Crash Cymbal","Hand Clap",
         "High Tom","Hi Bongo","Maracas","Whistle","Low Conga",
         "Cowball","Vibraslap","Low-mid Tom","High Agogo","Open Hi Conga"};
     private int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
-
-    private String message;
-    private Boolean isLoginIn;
+    //-----------------------------------------------------------------------------------
+    //----------for client---------------------------------------------------------------
+    private Message message;
+    private String useName;
+    private String password;
+    //-----------------------------------------------------------------------------------
 
     public static void main(String[] args){
         Client client = new Client();
@@ -36,15 +45,6 @@ public class BeatBox{
         clientThread.start();
         BeatBox beatBox = new BeatBox();
         beatBox.bulidGUI();
-        while (true){
-            System.out.println("BeatBox:"+beatBox.message);
-            System.out.println("BeatBox client:"+client.message);
-            client.message = beatBox.message;
-            beatBox.message = client.message;
-            try{
-                Thread.sleep(500);
-            }catch (Exception ex){ex.printStackTrace();}
-        }
     }
 
     private void bulidGUI(){
@@ -54,7 +54,6 @@ public class BeatBox{
         JPanel background;
 
         Box nameBox;
-
         Box eastBox;
         Box buttonBox;
         Box clientBox;
@@ -64,34 +63,34 @@ public class BeatBox{
 
         buttonBox = new Box(BoxLayout.Y_AXIS);
         buttonBox.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        JButton start = new JButton("��ʼ����");
+        JButton start = new JButton("START");
         start.addActionListener(new StartListener());
         buttonBox.add(start);
 
         state = new JLabel("...");
         buttonBox.add(state);
 
-        JButton stop = new JButton("ֹͣ����");
+        JButton stop = new JButton("STOP");
         stop.addActionListener(new StopListener());
         buttonBox.add(stop);
         buttonBox.add(Box.createVerticalStrut(10));
 
-        JButton upTempo = new JButton("����ӿ�");
+        JButton upTempo = new JButton("Tempo UP");
         upTempo.addActionListener(new UpTempoListener());
         buttonBox.add(upTempo);
         buttonBox.add(Box.createVerticalStrut(3));
 
-        JButton downTempo = new JButton("�������");
+        JButton downTempo = new JButton("Tempo Down");
         downTempo.addActionListener(new DownTempoListener());
         buttonBox.add(downTempo);
         buttonBox.add(Box.createVerticalStrut(10));
 
-        JButton serializelt = new JButton("��������");
+        JButton serializelt = new JButton("Serializelt");
         serializelt.addActionListener(new SerializeltListener());
         buttonBox.add(serializelt);
         buttonBox.add(Box.createVerticalStrut(3));
 
-        JButton restore = new JButton("���ļ�");
+        JButton restore = new JButton("Restore");
         restore.addActionListener(new RestoreListener());
         buttonBox.add(restore);
         buttonBox.add(Box.createVerticalStrut(10));
@@ -150,8 +149,8 @@ public class BeatBox{
         }
 
         JPanel titlePanel = new JPanel();
-        JLabel mainTitle = new JLabel("��ǰ��¼�˻�Ϊ��");
-        JLabel userNameMainPage = new JLabel("��");
+        JLabel mainTitle = new JLabel("User Name:");
+        JLabel userNameMainPage = new JLabel("NULL");
         userNameMainPage.setForeground(Color.RED);
         titlePanel.add(mainTitle);
         titlePanel.add(userNameMainPage);
@@ -163,10 +162,8 @@ public class BeatBox{
         background.add(BorderLayout.WEST,nameBox);
         background.add(BorderLayout.EAST,eastBox);
         background.add(BorderLayout.CENTER,mainPanel);
-        background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));//���ñ�Ե
+        background.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));//??????
         titlePanel.setBackground(new Color(22, 122, 89, 126));
-
-
 
         setUpMidi();
 
@@ -175,8 +172,8 @@ public class BeatBox{
             sequencer.addControllerEventListener(new ControllerListener(),eventIWant);
         }catch (Exception ex){ex.printStackTrace();}
 
-        theFrame = new JFrame("Beat Box");//���
-        theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//�رհ�ť�رտ��
+        theFrame = new JFrame("Beat Box");//???
+        theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//??????????
         theFrame.setResizable(false);
         theFrame.getContentPane().add(background);
         theFrame.setBounds(100,100,400,300);
@@ -281,49 +278,50 @@ public class BeatBox{
         }
     }
     private void showLoginInGui(){
-        JFrame loginInFrame = new JFrame("��½");
+        JFrame loginInFrame = new JFrame("Login In");
         JPanel loginInPanel = new JPanel();
         loginInFrame.getContentPane().add(loginInPanel);
         loginInPanel.setLayout(new BorderLayout());
 
-        JLabel loginInTitle = new JLabel("�������ʺź����룺");
+        JLabel loginInTitle = new JLabel("Please Input UserName and Password!");
+        loginInTitle.setHorizontalAlignment(SwingConstants.CENTER);
 
-        Box loginInContentBox = new Box(BoxLayout.Y_AXIS);
-        loginInContentBox.setBorder(BorderFactory.createEmptyBorder(30,10,10,10));
-        JPanel loginInNamePanel  = new JPanel();
-        JLabel loginInNameLabel = new JLabel("�ʺţ�");
-        JTextArea loginInNameArea = new JTextArea(1,20);
+        JPanel loginInContent = new JPanel();
+        loginInContent.setLayout(new GridLayout(2,2));
+        loginInContent.setBorder(BorderFactory.createEmptyBorder(30,10,10,10));
+
+        JLabel loginInNameLabel = new JLabel("Name:");
+        loginInNameArea = new JTextArea(1,20);
         loginInNameArea.setLineWrap(true);
         JScrollPane loginInNameScroll = new JScrollPane(loginInNameArea);
         loginInNameScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         loginInNameScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        loginInNamePanel.add(loginInNameLabel);
-        loginInNamePanel.add(loginInNameScroll);
 
-        JPanel loginInPasswordPanel  = new JPanel();
-        JLabel loginInPasswordLabel = new JLabel("�ʺţ�");
-        JTextArea loginInPasswordArea = new JTextArea(1,20);
+
+        JLabel loginInPasswordLabel = new JLabel("Password:");
+        loginInPasswordArea = new JTextArea(1,20);
         loginInPasswordArea.setLineWrap(true);
         JScrollPane loginInPasswordScroll = new JScrollPane(loginInPasswordArea);
         loginInPasswordScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         loginInPasswordScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        loginInPasswordPanel.add(loginInPasswordLabel);
-        loginInPasswordPanel.add(loginInPasswordScroll);
 
-        loginInContentBox.add(loginInNamePanel);
-        loginInContentBox.add(loginInPasswordPanel);
+        loginInContent.add(loginInNameLabel);
+        loginInContent.add(loginInNameScroll);
+        loginInContent.add(loginInPasswordLabel);
+        loginInContent.add(loginInPasswordScroll);
 
-        Box loginInButtonBox = new Box(BoxLayout.X_AXIS);
-        JButton loginInButton = new JButton("��½");
+        JPanel loginInButtonPanel = new JPanel();
+        JButton loginInButton = new JButton("Login In");
         loginInButton.addActionListener(new LoginInListener());
-        loginInButtonBox.add(Box.createHorizontalStrut(110));
-        loginInButtonBox.add(loginInButton);
+        loginInButton.setHorizontalAlignment(SwingConstants.CENTER);
+        loginInButtonPanel.add(loginInButton);
+
 
         loginInPanel.add(BorderLayout.NORTH,loginInTitle);
-        loginInPanel.add(BorderLayout.CENTER,loginInContentBox);
-        loginInPanel.add(BorderLayout.SOUTH,loginInButtonBox);
+        loginInPanel.add(BorderLayout.CENTER,loginInContent);
+        loginInPanel.add(BorderLayout.SOUTH,loginInButtonPanel);
 
-        loginInFrame.setSize(300,200);
+        loginInFrame.setSize(400,200);
         int loginInFrameX = theFrame.getX() + (theFrame.getWidth() - loginInFrame.getWidth()) / 2;
         int loginInFrameY = theFrame.getY() + (theFrame.getHeight() - loginInFrame.getHeight()) / 2;
         loginInFrame.setLocation(loginInFrameX,loginInFrameY);
@@ -333,7 +331,9 @@ public class BeatBox{
     }
     class LoginInListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-
+            useName = loginInNameArea.getText();
+            password = loginInPasswordArea.getText();
+            message = new Message(useName,password,"LoginIn");
         }
     }
     class StartListener implements ActionListener{
@@ -389,8 +389,8 @@ public class BeatBox{
     }
     class SendListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
-            if(!isLoginIn){
-                message = sendText.getText();
+            if(useName == null){
+                message = new Message(useName,password,sendText.getText());
                 sendText.setText("");
             }else{
                 showLoginInGui();
