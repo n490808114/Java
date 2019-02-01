@@ -34,17 +34,25 @@ public class BeatBox{
     private int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
     //-----------------------------------------------------------------------------------
     //----------for client---------------------------------------------------------------
-    private Message message;
+    private MessageList messageList;
     private String useName;
     private String password;
     //-----------------------------------------------------------------------------------
 
     public static void main(String[] args){
-        Client client = new Client();
+        final MessageList messageList = new MessageList();
+
+        Client client = new Client(messageList);
+        BeatBox beatBox = new BeatBox(messageList);
+
         Thread clientThread = new Thread(client);
         clientThread.start();
-        BeatBox beatBox = new BeatBox();
+
         beatBox.bulidGUI();
+    }
+
+    BeatBox(MessageList messageList){
+        this.messageList = messageList;
     }
 
     private void bulidGUI(){
@@ -333,7 +341,7 @@ public class BeatBox{
         public void actionPerformed(ActionEvent event){
             useName = loginInNameArea.getText();
             password = loginInPasswordArea.getText();
-            message = new Message(useName,password,"LoginIn");
+            messageList.add(new Message(useName,password,"LoginIn"));
         }
     }
     class StartListener implements ActionListener{
@@ -390,7 +398,7 @@ public class BeatBox{
     class SendListener implements ActionListener{
         public void actionPerformed(ActionEvent event){
             if(useName == null){
-                message = new Message(useName,password,sendText.getText());
+                messageList.add(new Message(useName,password,sendText.getText()));
                 sendText.setText("");
             }else{
                 showLoginInGui();
