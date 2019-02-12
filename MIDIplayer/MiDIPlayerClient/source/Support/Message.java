@@ -13,7 +13,7 @@ public class Message implements Cloneable,Serializable{
         this.userName = userName;
         this.password = password;
         this.message = message;
-        this.time = new SimpleDateFormat("YYYY-MM-DD HH:MM:S").format(new Date());
+        this.time = new SimpleDateFormat("YYYY-MM-DD HH:MM:ss").format(new Date());
     }
     public Message(String userName,String password,String message,String time){
         this.userName = userName;

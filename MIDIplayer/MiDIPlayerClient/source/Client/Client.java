@@ -2,31 +2,32 @@ package Client;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+
 import Support.*;
 
 public class Client implements Runnable{
 
-    private MessageCenter messageCenter;
-
-    Socket clientSocket;
+    Socket clientSocket ;
     ObjectOutputStream outputStream;
     ObjectInputStream inputStream;
+    ArrayList<Message> messages = new ArrayList<>();
 
     private String host = "127.0.0.1";
-    private int port = 5250;
+    private int port = 5200;
+    private final int AUTO_SAVE = 10;
 
-    Client(MessageCenter messageCenter){
-        this.messageCenter = messageCenter;
-        try{
+    Client(){
+        try {
             clientSocket = new Socket(host, port);
             outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
-            inputStream = new ObjectInputStream(clientSocket.getInputStream());
-        }catch (Exception ex){ex.printStackTrace();}
+            System.out.println("Client:setUp OK!................");
+        }catch (Exception ex){ ex.printStackTrace(); }
     }
-
     public void run(){
         try {
-            System.out.println("client:run........");
+            inputStream = new ObjectInputStream(clientSocket.getInputStream());
+            System.out.println("client:run...........................");
             while (true) {
                 Object o;
                 try {
@@ -35,22 +36,41 @@ public class Client implements Runnable{
                 Thread.sleep(100);
                 System.out.println("client:getting...................");
                 Message messageGet = (Message) o;
-                messageCenter.addShowList(messageGet);
+                messages.add(messageGet);
 
             }
         }catch (Exception ex){ ex.printStackTrace(); }
     }
-    void send(){
+    synchronized void send(Message message){
         try {
             System.out.println("client:sending....................");
-            Message[] sendList = messageCenter.getWaitForSendList();
-            if (sendList != null) {
-                for (Message message : sendList) {
-                    System.out.println(message.toString());
-                    outputStream.writeObject(message);
-                }
-            }
+            outputStream.writeObject(message);
             outputStream.flush();
         }catch (IOException ex){ex.printStackTrace();}
+    }
+    synchronized Message[] getMessage(){
+        if(messages.size()>0){
+            Message[] result = new Message[messages.size()];
+            for(int i=0;i<messages.size();i++){
+                result[i] = messages.get(i);
+            }
+            save(messages.size());
+            messages.clear();
+            return result;
+        }else{ return null; }
+    }
+    synchronized void autoSave(){
+        save(AUTO_SAVE);
+    }
+    private synchronized void save(int every){
+        if(messages.size() >= every){
+            try{
+                BufferedWriter writer = new BufferedWriter(new FileWriter("save.txt"));
+                for(int i=0;i<every;i++){
+                    writer.write(messages.get(0).toString());
+                }
+                writer.close();
+            }catch (Exception ex){ex.printStackTrace();}
+        }
     }
 }

@@ -35,36 +35,39 @@ public class BeatBox{
     private int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
     //-----------------------------------------------------------------------------------
     //----------for client---------------------------------------------------------------
-    private MessageCenter messageCenter;
+    private Client client;
     private String useName;
     private String password;
     //-----------------------------------------------------------------------------------
 
     public static void main(String[] args){
-        final MessageCenter messageCenter = new MessageCenter();
-
-        Client client = new Client(messageCenter);
-        BeatBox beatBox = new BeatBox(messageCenter);
-
+        System.out.println("1");
+        Client client = new Client();
+        System.out.println("2");
+        BeatBox beatBox = new BeatBox(client);
+        System.out.println("3");
         Thread clientThread = new Thread(client);
+        System.out.println("4");
         clientThread.start();
+        System.out.println("5");
         beatBox.bulidGUI();
+        System.out.println("6");
         while (true){
-            try{
-                Thread.sleep(100);
-            }catch (Exception ex){ex.printStackTrace();}
-            Message[] showList = messageCenter.getWaitForShowList();
-            if(showList != null){
-                for(Message message : showList){
-                    beatBox.messageText.append(message.toString());
+            System.out.println("Box : running");
+            Message[] showMessages = client.getMessage();
+            if(showMessages != null){
+                for (int i=0;i<showMessages.length;i++){
+                    beatBox.messageText.append(showMessages[i].toString());
                 }
             }
-            client.send();
+            try{
+                Thread.sleep(1000);
+            }catch (Exception ex){ex.printStackTrace();}
         }
     }
 
-    private BeatBox(MessageCenter messageCenter){
-        this.messageCenter = messageCenter;
+    private BeatBox(Client client){
+        this.client = client;
     }
 
     private void bulidGUI(){
@@ -353,7 +356,7 @@ public class BeatBox{
         public void actionPerformed(ActionEvent event){
             useName = loginInNameArea.getText();
             password = loginInPasswordArea.getText();
-            messageCenter.addSendList(new Message(useName,password,"LOGIN_IN"));
+            client.send(new Message(useName,password,"LOGIN_IN"));
             loginInFrame.dispose();
             theFrame.repaint();
         }
@@ -414,7 +417,7 @@ public class BeatBox{
             if(useName == null){
                 showLoginInGui();
             }else{
-                messageCenter.addSendList(new Message(useName,password,sendText.getText()));
+                client.send(new Message(useName,password,sendText.getText()));
                 sendText.setText("");
 
             }

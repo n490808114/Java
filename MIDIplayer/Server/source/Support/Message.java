@@ -30,7 +30,7 @@ public class Message implements Cloneable,Serializable{
     }
     public String toString(){
         StringBuffer str = new StringBuffer();
-        str.append(userName);
+        str.append(userName + "\n");
         str.append(time + "\n");
         str.append(message + "\n");
         return str.toString();
