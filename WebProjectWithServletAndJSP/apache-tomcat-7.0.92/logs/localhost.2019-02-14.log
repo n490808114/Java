@@ -1,0 +1,12 @@
+2月 14, 2019 12:29:20 上午 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: contextInitialized()
+2月 14, 2019 12:29:20 上午 org.apache.catalina.core.ApplicationContext log
+信息: SessionListener: contextInitialized()
+2月 14, 2019 12:29:20 上午 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: attributeAdded('StockTicker', 'async.Stockticker@670d43c6')
+2月 14, 2019 12:29:20 上午 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: attributeAdded('org.apache.jasper.compiler.TldLocationsCache', 'org.apache.jasper.compiler.TldLocationsCache@6918e3f4')
+2月 14, 2019 12:30:23 上午 org.apache.catalina.core.ApplicationContext log
+信息: SessionListener: contextDestroyed()
+2月 14, 2019 12:30:23 上午 org.apache.catalina.core.ApplicationContext log
+信息: ContextListener: contextDestroyed()

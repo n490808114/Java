@@ -1,0 +1,115 @@
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server version:        Apache Tomcat/7.0.92
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server built:          Nov 9 2018 11:07:44 UTC
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Server number:         7.0.92.0
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Name:               Windows 10
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: OS Version:            10.0
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Architecture:          amd64
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Java Home:             C:\Program Files\Java\jdk-11.0.1
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Version:           11.0.1+13-LTS
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: JVM Vendor:            Oracle Corporation
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_BASE:         F:/Python/GitHub/Java/WebProject/apache-tomcat-7.0.92
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: CATALINA_HOME:         F:/Python/GitHub/Java/WebProject/apache-tomcat-7.0.92
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.config.file=F:/Python/GitHub/Java/WebProject/apache-tomcat-7.0.92/conf/logging.properties
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dignore.endorsed.dirs=
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.base=F:/Python/GitHub/Java/WebProject/apache-tomcat-7.0.92
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Dcatalina.home=F:/Python/GitHub/Java/WebProject/apache-tomcat-7.0.92
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.VersionLoggerListener log
+信息: Command line argument: -Djava.io.tmpdir=F:/Python/GitHub/Java/WebProject/apache-tomcat-7.0.92/temp
+2月 14, 2019 12:29:18 上午 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+信息: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk-11.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\49080\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\49080\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Users\49080\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.6;C:\Program Files (x86)\Google\Chrome\Application;C:\MinGW\bin;C:\Program Files\Java\jdk-11.0.1\bin;C:\Maven\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin;C:\Users\49080\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\49080\AppData\Local\Programs\Python\Python37;C:\Users\49080\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip;C:\Users\49080\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\49080\AppData\Local\GitHubDesktop\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;.
+2月 14, 2019 12:29:18 上午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["http-bio-8080"]
+2月 14, 2019 12:29:18 上午 org.apache.coyote.AbstractProtocol init
+信息: Initializing ProtocolHandler ["ajp-bio-8009"]
+2月 14, 2019 12:29:18 上午 org.apache.catalina.startup.Catalina load
+信息: Initialization processed in 648 ms
+2月 14, 2019 12:29:18 上午 org.apache.catalina.core.StandardService startInternal
+信息: Starting service Catalina
+2月 14, 2019 12:29:19 上午 org.apache.catalina.core.StandardEngine startInternal
+信息: Starting Servlet Engine: Apache Tomcat/7.0.92
+2月 14, 2019 12:29:19 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\ch1
+2月 14, 2019 12:29:19 上午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2月 14, 2019 12:29:20 上午 org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+警告: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [609] milliseconds.
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\ch1 has finished in 1,072 ms
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\docs
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\docs has finished in 61 ms
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\examples
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\examples has finished in 758 ms
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\host-manager
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\host-manager has finished in 70 ms
+2月 14, 2019 12:29:20 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\manager
+2月 14, 2019 12:29:21 上午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2月 14, 2019 12:29:21 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\manager has finished in 60 ms
+2月 14, 2019 12:29:21 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deploying web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\ROOT
+2月 14, 2019 12:29:21 上午 org.apache.catalina.startup.TldConfig execute
+信息: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2月 14, 2019 12:29:21 上午 org.apache.catalina.startup.HostConfig deployDirectory
+信息: Deployment of web application directory F:\Python\GitHub\Java\WebProject\apache-tomcat-7.0.92\webapps\ROOT has finished in 51 ms
+2月 14, 2019 12:29:21 上午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["http-bio-8080"]
+2月 14, 2019 12:29:21 上午 org.apache.coyote.AbstractProtocol start
+信息: Starting ProtocolHandler ["ajp-bio-8009"]
+2月 14, 2019 12:29:21 上午 org.apache.catalina.startup.Catalina start
+信息: Server startup in 2169 ms
+2月 14, 2019 12:30:23 上午 org.apache.catalina.core.StandardServer await
+信息: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+2月 14, 2019 12:30:23 上午 org.apache.coyote.AbstractProtocol pause
+信息: Pausing ProtocolHandler ["http-bio-8080"]
+2月 14, 2019 12:30:23 上午 org.apache.coyote.AbstractProtocol pause
+信息: Pausing ProtocolHandler ["ajp-bio-8009"]
+2月 14, 2019 12:30:23 上午 org.apache.catalina.core.StandardService stopInternal
+信息: Stopping service Catalina
+2月 14, 2019 12:30:23 上午 org.apache.coyote.AbstractProtocol stop
+信息: Stopping ProtocolHandler ["http-bio-8080"]
+2月 14, 2019 12:30:23 上午 org.apache.coyote.AbstractProtocol stop
+信息: Stopping ProtocolHandler ["ajp-bio-8009"]
+2月 14, 2019 12:30:23 上午 org.apache.coyote.AbstractProtocol destroy
+信息: Destroying ProtocolHandler ["http-bio-8080"]
+2月 14, 2019 12:30:23 上午 org.apache.coyote.AbstractProtocol destroy
+信息: Destroying ProtocolHandler ["ajp-bio-8009"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
