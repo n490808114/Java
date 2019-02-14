@@ -33,7 +33,6 @@ public class Client implements Runnable{
                 try {
                     o = inputStream.readObject();
                 }catch (IOException ex){continue;}
-                Thread.sleep(100);
                 System.out.println("client:getting...................");
                 Message messageGet = (Message) o;
                 messages.add(messageGet);
@@ -41,14 +40,14 @@ public class Client implements Runnable{
             }
         }catch (Exception ex){ ex.printStackTrace(); }
     }
-    synchronized void send(Message message){
+    void send(Message message){
         try {
             System.out.println("client:sending....................");
             outputStream.writeObject(message);
             outputStream.flush();
         }catch (IOException ex){ex.printStackTrace();}
     }
-    synchronized Message[] getMessage(){
+    Message[] getMessage(){
         if(messages.size()>0){
             Message[] result = new Message[messages.size()];
             for(int i=0;i<messages.size();i++){

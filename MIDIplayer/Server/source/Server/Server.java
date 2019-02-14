@@ -54,16 +54,19 @@ public class Server {
             this.socket = socket;
         }
         public void run(){
-            try {
-                ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
+                try {
+                    ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
+                    while(true) {
+                        Message message = (Message) input.readObject();
+                        System.out.println(message.toString());
+                        messages.add(message);
 
-                Message message = (Message) input.readObject();
-                System.out.println(message.toString());
-                messages.add(message);
+                        tellEveryOne(message);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
 
-                tellEveryOne(message);
-
-            }catch (Exception ex){ex.printStackTrace();}
         }
     }
 }

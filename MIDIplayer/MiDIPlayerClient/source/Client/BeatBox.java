@@ -24,6 +24,7 @@ public class BeatBox{
     private JTextArea sendText;
     private JTextArea loginInNameArea;
     private JTextArea loginInPasswordArea;
+    private JLabel userNameMainPage;
 
     JFrame loginInFrame;
     //----------------------------------------------------------------------------------
@@ -173,7 +174,7 @@ public class BeatBox{
 
         JPanel titlePanel = new JPanel();
         JLabel mainTitle = new JLabel("User Name:");
-        JLabel userNameMainPage = new JLabel(useName);
+        userNameMainPage = new JLabel(useName);
         userNameMainPage.setForeground(Color.RED);
         titlePanel.add(mainTitle);
         titlePanel.add(userNameMainPage);
@@ -358,7 +359,7 @@ public class BeatBox{
             password = loginInPasswordArea.getText();
             client.send(new Message(useName,password,"LOGIN_IN"));
             loginInFrame.dispose();
-            theFrame.repaint();
+            userNameMainPage.setText(useName);
         }
     }
     class StartListener implements ActionListener{

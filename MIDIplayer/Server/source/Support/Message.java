@@ -35,4 +35,11 @@ public class Message implements Cloneable,Serializable{
         str.append(message + "\n");
         return str.toString();
     }
+    int compareTo(Message message){
+        if(message.userName.equals(this.userName)){
+            return 0;
+        }else{
+            return -1;
+        }
+    }
 }
