@@ -42,6 +42,8 @@ public class CompressionServletResponseWrapper
     /**
      * Calls the parent constructor which creates a ServletResponse adaptor
      * wrapping the given response object.
+     *
+     * @param response The response object to be wrapped.
      */
     public CompressionServletResponseWrapper(HttpServletResponse response) {
         super(response);
@@ -57,20 +59,12 @@ public class CompressionServletResponseWrapper
     /**
      * Original response
      */
-
-    protected HttpServletResponse origResponse = null;
-
-    /**
-     * Descriptive information about this Response implementation.
-     */
-
-    protected static final String info = "CompressionServletResponseWrapper";
+    protected final HttpServletResponse origResponse;
 
     /**
      * The ServletOutputStream that has been returned by
      * <code>getOutputStream()</code>, if any.
      */
-
     protected ServletOutputStream stream = null;
 
 
@@ -78,7 +72,6 @@ public class CompressionServletResponseWrapper
      * The PrintWriter that has been returned by
      * <code>getWriter()</code>, if any.
      */
-
     protected PrintWriter writer = null;
 
     /**
@@ -104,14 +97,16 @@ public class CompressionServletResponseWrapper
     /**
      * keeps a copy of all headers set
      */
-    private Map<String,String> headerCopies = new HashMap<String,String>();
+    private final Map<String,String> headerCopies = new HashMap<>();
 
 
     // --------------------------------------------------------- Public Methods
 
 
     /**
-     * Set threshold number
+     * Set threshold number.
+     *
+     * @param threshold The new compression threshold
      */
     public void setCompressionThreshold(int threshold) {
         if (debug > 1) {
@@ -121,7 +116,9 @@ public class CompressionServletResponseWrapper
     }
 
     /**
-     * Set compression buffer
+     * Set compression buffer.
+     *
+     * @param buffer New size of buffer to use for compressed output
      */
     public void setCompressionBuffer(int buffer) {
         if (debug > 1) {
@@ -131,7 +128,10 @@ public class CompressionServletResponseWrapper
     }
 
     /**
-     * Set compressible mime types
+     * Set compressible mime types.
+     *
+     * @param mimeTypes The new list of mime types that will be considered for
+     *                  compression
      */
     public void setCompressionMimeTypes(String[] mimeTypes) {
         if (debug > 1) {
@@ -142,7 +142,9 @@ public class CompressionServletResponseWrapper
     }
 
     /**
-     * Set debug level
+     * Set debug level.
+     *
+     * @param debug The new debug level
      */
     public void setDebugLevel(int debug) {
         this.debug = debug;
@@ -154,8 +156,11 @@ public class CompressionServletResponseWrapper
      * associated with this Response.
      *
      * @exception IOException if an input/output error occurs
+     *
+     * @return A new servlet output stream that compressed any data written to
+     *         it
      */
-    public ServletOutputStream createOutputStream() throws IOException {
+    protected ServletOutputStream createOutputStream() throws IOException {
         if (debug > 1) {
             System.out.println("createOutputStream gets called");
         }
@@ -224,8 +229,7 @@ public class CompressionServletResponseWrapper
             System.out.println("stream is set to "+stream+" in getOutputStream");
         }
 
-        return (stream);
-
+        return stream;
     }
 
     /**
@@ -239,7 +243,7 @@ public class CompressionServletResponseWrapper
     public PrintWriter getWriter() throws IOException {
 
         if (writer != null)
-            return (writer);
+            return writer;
 
         if (stream != null)
             throw new IllegalStateException("getOutputStream() has already been called for this response");
@@ -252,15 +256,9 @@ public class CompressionServletResponseWrapper
         if (debug > 1) {
             System.out.println("character encoding is " + charEnc);
         }
-        // HttpServletResponse.getCharacterEncoding() shouldn't return null
-        // according the spec, so feel free to remove that "if"
-        if (charEnc != null) {
-            writer = new PrintWriter(new OutputStreamWriter(stream, charEnc));
-        } else {
-            writer = new PrintWriter(stream);
-        }
+        writer = new PrintWriter(new OutputStreamWriter(stream, charEnc));
 
-        return (writer);
+        return writer;
     }
 
     @Override

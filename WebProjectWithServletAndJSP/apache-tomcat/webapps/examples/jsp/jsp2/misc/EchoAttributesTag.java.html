@@ -1,5 +1,4 @@
-<html><body><pre>
-/*
+<!DOCTYPE html><html><head><meta charset="UTF-8" /><title>Source Code</title></head><body><pre>/*
 * Licensed to the Apache Software Foundation (ASF) under one or more
 * contributor license agreements.  See the NOTICE file distributed with
 * this work for additional information regarding copyright ownership.
@@ -21,6 +20,7 @@ package jsp2.examples.simpletag;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -34,8 +34,8 @@ public class EchoAttributesTag
     extends SimpleTagSupport
     implements DynamicAttributes
 {
-    private ArrayList&lt;String> keys = new ArrayList&lt;String>();
-    private ArrayList&lt;Object> values = new ArrayList&lt;Object>();
+    private final List&lt;String> keys = new ArrayList&lt;>();
+    private final List&lt;Object> values = new ArrayList&lt;>();
 
     @Override
     public void doTag() throws JspException, IOException {
