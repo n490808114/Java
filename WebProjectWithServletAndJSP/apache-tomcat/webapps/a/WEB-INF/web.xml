@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
     <servlet>
-        <servlet-name>Chapter1 Servlet</servlet-name>
-        <servlet-class>Ch1Servlet</servlet-class>
+        <servlet-name>loginin</servlet-name>
+        <servlet-class>com.account.web.LoginIn</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Chapter1 Servlet</servlet-name>
-        <url-pattern>/Serv1</url-pattern>
+        <servlet-name>loginin</servlet-name>
+        <url-pattern>/loginin.do</url-pattern>
     </servlet-mapping>
 </web-app>

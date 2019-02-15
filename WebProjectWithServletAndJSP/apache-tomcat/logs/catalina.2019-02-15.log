@@ -1,0 +1,276 @@
+15-Feb-2019 13:29:44.907 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本:        Apache Tomcat/9.0.16
+15-Feb-2019 13:29:44.967 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.构建:          Feb 4 2019 16:30:29 UTC
+15-Feb-2019 13:29:44.968 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+15-Feb-2019 13:29:44.969 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+15-Feb-2019 13:29:44.971 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:            6.1
+15-Feb-2019 13:29:44.986 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 结.造:          amd64
+15-Feb-2019 13:29:44.987 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:             C:\Program Files\Java\jdk-11.0.1
+15-Feb-2019 13:29:44.988 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 版本:           11.0.1+13-LTS
+15-Feb-2019 13:29:44.990 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:            Oracle Corporation
+15-Feb-2019 13:29:44.991 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:29:44.992 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:29:44.994 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Feb-2019 13:29:44.996 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Feb-2019 13:29:44.997 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Feb-2019 13:29:44.998 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\conf\logging.properties
+15-Feb-2019 13:29:44.999 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2019 13:29:45.000 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Feb-2019 13:29:45.001 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Feb-2019 13:29:45.002 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+15-Feb-2019 13:29:45.003 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:29:45.005 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:29:45.006 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\temp
+15-Feb-2019 13:29:45.009 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+15-Feb-2019 13:29:45.011 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+15-Feb-2019 13:29:45.013 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15-Feb-2019 13:29:45.079 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+15-Feb-2019 13:29:45.213 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+15-Feb-2019 13:29:45.462 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["ajp-nio-8009"]
+15-Feb-2019 13:29:45.476 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1,695]毫秒内初始化
+15-Feb-2019 13:29:45.622 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Feb-2019 13:29:45.623 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+15-Feb-2019 13:29:45.660 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs]
+15-Feb-2019 13:29:46.402 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs] has finished in [741] ms
+15-Feb-2019 13:29:46.403 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples]
+15-Feb-2019 13:29:47.244 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples] has finished in [841] ms
+15-Feb-2019 13:29:47.246 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager]
+15-Feb-2019 13:29:47.340 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager] has finished in [94] ms
+15-Feb-2019 13:29:47.341 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager]
+15-Feb-2019 13:29:47.384 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager] has finished in [43] ms
+15-Feb-2019 13:29:47.386 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT]
+15-Feb-2019 13:29:47.427 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT] has finished in [41] ms
+15-Feb-2019 13:29:47.430 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\WebSite]
+15-Feb-2019 13:29:47.496 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\WebSite] has finished in [65] ms
+15-Feb-2019 13:29:47.502 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+15-Feb-2019 13:29:47.524 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["ajp-nio-8009"]
+15-Feb-2019 13:29:47.536 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in [2,058] milliseconds
+15-Feb-2019 13:30:55.998 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本:        Apache Tomcat/9.0.16
+15-Feb-2019 13:30:56.009 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.构建:          Feb 4 2019 16:30:29 UTC
+15-Feb-2019 13:30:56.011 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+15-Feb-2019 13:30:56.013 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+15-Feb-2019 13:30:56.014 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:            6.1
+15-Feb-2019 13:30:56.016 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 结.造:          amd64
+15-Feb-2019 13:30:56.017 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:             C:\Program Files\Java\jdk-11.0.1
+15-Feb-2019 13:30:56.019 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 版本:           11.0.1+13-LTS
+15-Feb-2019 13:30:56.021 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:            Oracle Corporation
+15-Feb-2019 13:30:56.022 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:30:56.023 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:30:56.026 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Feb-2019 13:30:56.027 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Feb-2019 13:30:56.028 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Feb-2019 13:30:56.029 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\conf\logging.properties
+15-Feb-2019 13:30:56.031 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2019 13:30:56.032 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Feb-2019 13:30:56.034 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Feb-2019 13:30:56.036 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+15-Feb-2019 13:30:56.037 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:30:56.038 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 13:30:56.039 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\temp
+15-Feb-2019 13:30:56.041 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+15-Feb-2019 13:30:56.042 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+15-Feb-2019 13:30:56.042 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15-Feb-2019 13:30:56.056 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+15-Feb-2019 13:30:56.137 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+15-Feb-2019 13:30:56.302 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["ajp-nio-8009"]
+15-Feb-2019 13:30:56.316 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1,044]毫秒内初始化
+15-Feb-2019 13:30:56.416 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Feb-2019 13:30:56.420 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+15-Feb-2019 13:30:56.433 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a]
+15-Feb-2019 13:30:56.995 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a] has finished in [562] ms
+15-Feb-2019 13:30:57.001 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs]
+15-Feb-2019 13:30:57.038 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs] has finished in [37] ms
+15-Feb-2019 13:30:57.051 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples]
+15-Feb-2019 13:30:57.596 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples] has finished in [544] ms
+15-Feb-2019 13:30:57.605 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager]
+15-Feb-2019 13:30:57.666 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager] has finished in [61] ms
+15-Feb-2019 13:30:57.669 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager]
+15-Feb-2019 13:30:57.707 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager] has finished in [38] ms
+15-Feb-2019 13:30:57.712 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT]
+15-Feb-2019 13:30:57.746 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT] has finished in [34] ms
+15-Feb-2019 13:30:57.751 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+15-Feb-2019 13:30:57.767 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["ajp-nio-8009"]
+15-Feb-2019 13:30:57.786 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in [1,468] milliseconds
+15-Feb-2019 15:31:26.072 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本:        Apache Tomcat/9.0.16
+15-Feb-2019 15:31:26.094 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.构建:          Feb 4 2019 16:30:29 UTC
+15-Feb-2019 15:31:26.096 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+15-Feb-2019 15:31:26.097 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+15-Feb-2019 15:31:26.098 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:            6.1
+15-Feb-2019 15:31:26.100 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 结.造:          amd64
+15-Feb-2019 15:31:26.101 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:             C:\Program Files\Java\jdk-11.0.1
+15-Feb-2019 15:31:26.106 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 版本:           11.0.1+13-LTS
+15-Feb-2019 15:31:26.107 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:            Oracle Corporation
+15-Feb-2019 15:31:26.109 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:31:26.112 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:31:26.113 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Feb-2019 15:31:26.115 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Feb-2019 15:31:26.119 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Feb-2019 15:31:26.120 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\conf\logging.properties
+15-Feb-2019 15:31:26.122 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2019 15:31:26.123 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Feb-2019 15:31:26.126 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Feb-2019 15:31:26.132 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+15-Feb-2019 15:31:26.133 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:31:26.135 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:31:26.137 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\temp
+15-Feb-2019 15:31:26.139 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+15-Feb-2019 15:31:26.140 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+15-Feb-2019 15:31:26.142 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15-Feb-2019 15:31:26.173 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+15-Feb-2019 15:31:26.261 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+15-Feb-2019 15:31:26.424 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["ajp-nio-8009"]
+15-Feb-2019 15:31:26.446 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1,358]毫秒内初始化
+15-Feb-2019 15:31:26.576 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Feb-2019 15:31:26.577 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+15-Feb-2019 15:31:26.594 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a]
+15-Feb-2019 15:31:27.310 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a] has finished in [716] ms
+15-Feb-2019 15:31:27.312 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs]
+15-Feb-2019 15:31:27.394 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs] has finished in [81] ms
+15-Feb-2019 15:31:27.395 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples]
+15-Feb-2019 15:31:28.139 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples] has finished in [744] ms
+15-Feb-2019 15:31:28.140 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager]
+15-Feb-2019 15:31:28.207 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager] has finished in [67] ms
+15-Feb-2019 15:31:28.208 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager]
+15-Feb-2019 15:31:28.275 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager] has finished in [67] ms
+15-Feb-2019 15:31:28.276 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT]
+15-Feb-2019 15:31:28.321 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT] has finished in [45] ms
+15-Feb-2019 15:31:28.327 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+15-Feb-2019 15:31:28.351 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["ajp-nio-8009"]
+15-Feb-2019 15:31:28.366 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in [1,918] milliseconds
+15-Feb-2019 15:32:50.601 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本:        Apache Tomcat/9.0.16
+15-Feb-2019 15:32:50.616 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.构建:          Feb 4 2019 16:30:29 UTC
+15-Feb-2019 15:32:50.618 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+15-Feb-2019 15:32:50.621 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+15-Feb-2019 15:32:50.623 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:            6.1
+15-Feb-2019 15:32:50.625 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 结.造:          amd64
+15-Feb-2019 15:32:50.626 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:             C:\Program Files\Java\jdk-11.0.1
+15-Feb-2019 15:32:50.627 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 版本:           11.0.1+13-LTS
+15-Feb-2019 15:32:50.628 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:            Oracle Corporation
+15-Feb-2019 15:32:50.629 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:32:50.631 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:32:50.659 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Feb-2019 15:32:50.661 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Feb-2019 15:32:50.664 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Feb-2019 15:32:50.666 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\conf\logging.properties
+15-Feb-2019 15:32:50.688 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2019 15:32:50.689 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Feb-2019 15:32:50.690 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Feb-2019 15:32:50.692 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+15-Feb-2019 15:32:50.693 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:32:50.694 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:32:50.696 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\temp
+15-Feb-2019 15:32:50.697 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+15-Feb-2019 15:32:50.698 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+15-Feb-2019 15:32:50.699 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15-Feb-2019 15:32:50.714 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+15-Feb-2019 15:32:50.811 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+15-Feb-2019 15:32:51.012 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["ajp-nio-8009"]
+15-Feb-2019 15:32:51.024 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1,174]毫秒内初始化
+15-Feb-2019 15:32:51.190 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Feb-2019 15:32:51.191 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+15-Feb-2019 15:32:51.202 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a]
+15-Feb-2019 15:32:51.825 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a] has finished in [623] ms
+15-Feb-2019 15:32:51.830 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs]
+15-Feb-2019 15:32:51.864 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs] has finished in [34] ms
+15-Feb-2019 15:32:51.873 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples]
+15-Feb-2019 15:32:52.409 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples] has finished in [536] ms
+15-Feb-2019 15:32:52.416 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager]
+15-Feb-2019 15:32:52.492 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager] has finished in [77] ms
+15-Feb-2019 15:32:52.495 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager]
+15-Feb-2019 15:32:52.529 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager] has finished in [34] ms
+15-Feb-2019 15:32:52.530 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT]
+15-Feb-2019 15:32:52.596 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT] has finished in [66] ms
+15-Feb-2019 15:32:52.607 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+15-Feb-2019 15:32:52.625 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["ajp-nio-8009"]
+15-Feb-2019 15:32:52.645 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in [1,532] milliseconds
+15-Feb-2019 15:33:31.727 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本:        Apache Tomcat/9.0.16
+15-Feb-2019 15:33:31.750 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.构建:          Feb 4 2019 16:30:29 UTC
+15-Feb-2019 15:33:31.751 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+15-Feb-2019 15:33:31.753 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+15-Feb-2019 15:33:31.755 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:            6.1
+15-Feb-2019 15:33:31.759 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 结.造:          amd64
+15-Feb-2019 15:33:31.761 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:             C:\Program Files\Java\jdk-11.0.1
+15-Feb-2019 15:33:31.763 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 版本:           11.0.1+13-LTS
+15-Feb-2019 15:33:31.764 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:            Oracle Corporation
+15-Feb-2019 15:33:31.766 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:33:31.767 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:33:31.769 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Feb-2019 15:33:31.770 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Feb-2019 15:33:31.772 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Feb-2019 15:33:31.774 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\conf\logging.properties
+15-Feb-2019 15:33:31.775 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2019 15:33:31.776 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Feb-2019 15:33:31.778 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Feb-2019 15:33:31.797 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+15-Feb-2019 15:33:31.798 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:33:31.799 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:33:31.800 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\temp
+15-Feb-2019 15:33:31.801 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+15-Feb-2019 15:33:31.802 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+15-Feb-2019 15:33:31.804 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15-Feb-2019 15:33:31.818 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+15-Feb-2019 15:33:31.874 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+15-Feb-2019 15:33:32.041 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["ajp-nio-8009"]
+15-Feb-2019 15:33:32.050 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1,180]毫秒内初始化
+15-Feb-2019 15:33:32.145 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Feb-2019 15:33:32.150 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+15-Feb-2019 15:33:32.162 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a]
+15-Feb-2019 15:33:32.771 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a] has finished in [609] ms
+15-Feb-2019 15:33:32.773 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs]
+15-Feb-2019 15:33:32.830 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs] has finished in [56] ms
+15-Feb-2019 15:33:32.832 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples]
+15-Feb-2019 15:33:33.376 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples] has finished in [544] ms
+15-Feb-2019 15:33:33.395 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager]
+15-Feb-2019 15:33:33.452 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager] has finished in [58] ms
+15-Feb-2019 15:33:33.458 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager]
+15-Feb-2019 15:33:33.506 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager] has finished in [49] ms
+15-Feb-2019 15:33:33.510 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT]
+15-Feb-2019 15:33:33.589 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT] has finished in [80] ms
+15-Feb-2019 15:33:33.659 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+15-Feb-2019 15:33:33.675 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["ajp-nio-8009"]
+15-Feb-2019 15:33:33.685 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in [1,633] milliseconds
+15-Feb-2019 15:37:50.292 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本:        Apache Tomcat/9.0.16
+15-Feb-2019 15:37:50.306 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.构建:          Feb 4 2019 16:30:29 UTC
+15-Feb-2019 15:37:50.308 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.16.0
+15-Feb-2019 15:37:50.310 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 7
+15-Feb-2019 15:37:50.311 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:            6.1
+15-Feb-2019 15:37:50.312 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 结.造:          amd64
+15-Feb-2019 15:37:50.313 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:             C:\Program Files\Java\jdk-11.0.1
+15-Feb-2019 15:37:50.314 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 版本:           11.0.1+13-LTS
+15-Feb-2019 15:37:50.316 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:            Oracle Corporation
+15-Feb-2019 15:37:50.318 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:37:50.321 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:37:50.322 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+15-Feb-2019 15:37:50.324 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+15-Feb-2019 15:37:50.327 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+15-Feb-2019 15:37:50.329 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\conf\logging.properties
+15-Feb-2019 15:37:50.330 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+15-Feb-2019 15:37:50.333 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+15-Feb-2019 15:37:50.334 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+15-Feb-2019 15:37:50.340 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+15-Feb-2019 15:37:50.341 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:37:50.343 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat
+15-Feb-2019 15:37:50.344 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\temp
+15-Feb-2019 15:37:50.346 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+15-Feb-2019 15:37:50.348 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+15-Feb-2019 15:37:50.349 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+15-Feb-2019 15:37:50.363 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+15-Feb-2019 15:37:50.426 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+15-Feb-2019 15:37:50.562 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["ajp-nio-8009"]
+15-Feb-2019 15:37:50.577 信息 [main] org.apache.catalina.startup.Catalina.load 服务器在[1,202]毫秒内初始化
+15-Feb-2019 15:37:50.683 信息 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+15-Feb-2019 15:37:50.685 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.16]
+15-Feb-2019 15:37:50.705 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a]
+15-Feb-2019 15:37:51.351 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\a] has finished in [645] ms
+15-Feb-2019 15:37:51.353 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs]
+15-Feb-2019 15:37:51.408 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\docs] has finished in [54] ms
+15-Feb-2019 15:37:51.411 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples]
+15-Feb-2019 15:37:52.032 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\examples] has finished in [622] ms
+15-Feb-2019 15:37:52.034 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager]
+15-Feb-2019 15:37:52.095 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\host-manager] has finished in [61] ms
+15-Feb-2019 15:37:52.101 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager]
+15-Feb-2019 15:37:52.139 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\manager] has finished in [38] ms
+15-Feb-2019 15:37:52.162 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT]
+15-Feb-2019 15:37:52.199 信息 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\zhao\OneDrive\python\Github\Java\WebProjectWithServletAndJSP\apache-tomcat\webapps\ROOT] has finished in [38] ms
+15-Feb-2019 15:37:52.205 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+15-Feb-2019 15:37:52.230 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["ajp-nio-8009"]
+15-Feb-2019 15:37:52.245 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in [1,665] milliseconds
