@@ -9,6 +9,7 @@ import java.io.*;
 
 public class LoginIn extends HttpServlet{
     AccountDB accountDB = new AccountDB();
+
     public void doPost(HttpServletRequest request,HttpServletResponse response)
                 throws IOException,ServletException {
 
