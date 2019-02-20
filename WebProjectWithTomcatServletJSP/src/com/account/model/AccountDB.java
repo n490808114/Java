@@ -16,6 +16,9 @@ public class AccountDB {
 
         return accounts.contains(new Account(userName, password));
     }
+    public void close(){
+
+    }
 }
 
 class Account{

@@ -7,13 +7,26 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
+    <!-- 上下文参数 -->
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>490808114@qq.com</param-value>
+    </context-param>
+    <listener>
+        <listener-class>com.listener.model.MyContextListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>loginin</servlet-name>
         <servlet-class>com.account.web.LoginIn</servlet-class>
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>490808114@qq.com</param-value>
+        </init-param>
     </servlet>
     <servlet>
         <servlet-name>download</servlet-name>
-        <servlet-class>com.download.web.DownloadItem</servlet-class>
+        <servlet-class>com.listener.web.ListenerTester</servlet-class>
     </servlet>
 
     <servlet-mapping>
