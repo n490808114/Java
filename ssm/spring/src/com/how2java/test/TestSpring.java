@@ -1,15 +1,12 @@
 package com.how2java.test;
 
-import com.how2java.jdbc.TestJDBC;
+import com.how2java.jdbc.ConnectJDBC;
 import com.how2java.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-import com.how2java.pojo.Category;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.LinkedList;
 
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -17,7 +14,7 @@ public class TestSpring {
 	@Autowired
 	ProductService service;
 	@Autowired
-	TestJDBC jdbcTest;
+    ConnectJDBC jdbcTest;
 
 	public static void main(String[] args){
 		new TestSpring().test();
