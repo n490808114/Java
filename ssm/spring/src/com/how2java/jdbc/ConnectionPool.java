@@ -1,57 +1,47 @@
 package com.how2java.jdbc;
 
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import javax.swing.plaf.nimbus.State;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
  * 用户线程通过excute方法访问connectionPool
- *
+ *class
  */
-public class ConnectionPool {
+public class ConnectionPool implements StateOfJDBC {
+    private static final ConnectionPool connectionPool = new ConnectionPool();
     private SonThread[] pool;
-    private int maxThreadNums;
-    private LinkedList<String> waitList;
-    private int MaxserialNum = 0;
+    private static final int maxThreadNums = 20;
 
-    private static final int EXECUTE = 0;
-    private static final int EXECUTE_QUERY = 1;
-    private static final int EXECUTE_UPDATE = 2;
+    private ConnectionPool(){}
 
-    private Map<Integer,Boolean> executeResult = new HashMap<>(maxThreadNums);
-    private Map<Integer,Integer> executeUpdateResult = new HashMap<>(maxThreadNums);
-    private Map<Integer,LinkedList<String[]>> executeQueryResult = new HashMap<>(maxThreadNums);
-
-    ConnectionPool(){
-        pool = new SonThread[20];
-        maxThreadNums = 20;
-        waitList = new LinkedList<>();
+    public static ConnectionPool getInstance(){
+        return connectionPool;
     }
-    ConnectionPool(int threadNums){
-        pool = new SonThread[threadNums];
-        maxThreadNums = threadNums;
-        waitList = new LinkedList<>();
+    void init(){
+        pool = new SonThread[maxThreadNums];
     }
-    void init(ConnectionPool otherPool){
-        for(int i=0;i<maxThreadNums;i++){
-            pool[i] = new SonThread(otherPool);
-        }
-    }
-    private synchronized void doIt(int serialNum,int orderCode,String sqlString){
+    public void doIt(int orderCode,String sqlString,JDBCgetResult object){
         int isSended = 0;
         while (isSended == 0){
             for(SonThread eachThread:pool){
+                if(eachThread == null){
+                    synchronized (ConnectionPool.class){
+                        if(eachThread == null){
+                            eachThread = new SonThread();
+                            System.out.print(eachThread.getThreadNo()+"已创建");
+                            new Thread(eachThread).start();
+                            System.out.println(eachThread.getThreadNo()+"已运行"+pool.length);
+                        }
+                    }
+                }
                 if(eachThread.isWaiting){
-                    eachThread.setNewDuty(serialNum,orderCode,sqlString);
-                    eachThread.notifyAll();
+                    eachThread.setNewDuty(object,orderCode,sqlString);
+                    synchronized (eachThread){eachThread.notify();}
                     isSended = 1;
+                    break;
                 }
             }
-            try{
-                TimeUnit.SECONDS.sleep(1);
-            }catch (InterruptedException ex){ex.printStackTrace();}
         }
     }
     public void close(){
@@ -65,93 +55,76 @@ public class ConnectionPool {
         }
         System.out.println("Threads has been closed");
     }
-    private Boolean getFromBooleanResult(int serialNum){
-        Boolean result = null;
-        while (result == null){
-            try{
-                TimeUnit.SECONDS.sleep(1);
-            }catch (InterruptedException ex){ex.printStackTrace();}
-            result = executeResult.get(serialNum);
-        }
-        return result;
-    }
-    private int getFromIntegerResult(int serialNum){
-        int result = 0;
-        while (result == 0){
-            try{
-                TimeUnit.SECONDS.sleep(1);
-            }catch (InterruptedException ex){ex.printStackTrace();}
-            result = executeUpdateResult.get(serialNum);
-        }
-        return result;
-    }
-    private LinkedList<String[]> getFromObjectResult(int serialNum){
-        LinkedList<String[]> result = null;
-        while (result == null){
-            try{
-                TimeUnit.SECONDS.sleep(1);
-            }catch (InterruptedException ex){ex.printStackTrace();}
-            result = executeQueryResult.get(serialNum);
-        }
-        return result;
-    }
-    void putInBooleanResult(int serialNum,Boolean result){
-        while (executeResult.size() == maxThreadNums){
-            try{
-                TimeUnit.SECONDS.sleep(1);
-            }catch (InterruptedException ex){ex.printStackTrace();}
-        }
-        executeResult.put(serialNum,result);
-    }
+}
 
 
 
-    private synchronized int getNum(){
-        return MaxserialNum++;
-    }
-    public Execute useExecute(){
-        return new Execute();
-    }
-    public ExecuteQuery useExecuteQuery(){
-        return new ExecuteQuery();
-    }
-    public ExecuteUpdate useExecuteUpdate(){
-        return new ExecuteUpdate();
-    }
-    class Execute{
-        int serialNum;
-        public Boolean send(String sqlString){
-            this.serialNum = getNum();
-            doIt(serialNum,EXECUTE,sqlString);
-            return getFromBooleanResult(serialNum);
-        }
-    }
-    class ExecuteQuery{
-        int serialNum;
-        public LinkedList<String[]> send(String sqlString){
-            this.serialNum = getNum();
-            doIt(serialNum,EXECUTE_QUERY,sqlString);
-            return getFromObjectResult(serialNum);
-        }
-    }
-    class ExecuteUpdate{
-        int serialNum;
-        public int send(String sqlString){
-            this.serialNum = getNum();
-            doIt(serialNum,EXECUTE_UPDATE,sqlString);
-            return getFromIntegerResult(serialNum);
-        }
-    }
 
-    Map<Integer, Boolean> getExecuteResult() {
-        return executeResult;
-    }
+interface StateOfJDBC{
+    int EXECUTE = 0;
+    int EXECUTE_QUERY = 1;
+    int EXECUTE_UPDATE = 2;
+}
 
-    Map<Integer, Integer> getExecuteUpdateResult() {
-        return executeUpdateResult;
-    }
+class SonThread extends Thread implements StateOfJDBC{
+    private int threadNo;
+    private static int threadMax = 0;
+    private JDBCgetResult object;
+    private int orderCode;
+    private String sqlString;
 
-    Map<Integer, LinkedList<String[]>> getExecuteQueryResult() {
-        return executeQueryResult;
+    private JDBCgetResult object1;
+
+    Boolean isWaiting;
+    Boolean isEnd;
+    private final ConnectJDBC connectJDBC;
+    SonThread(){
+        connectJDBC = new ConnectJDBC();
+        isEnd = false;
+        isWaiting = true;
+        threadMax += 1;
+        orderCode = -1;
+        threadNo = threadMax;
+
+    }
+    public synchronized void run(){
+        connectJDBC.link();
+
+        while (!isEnd){
+            try {
+                if(object == null){
+                    isWaiting = true;
+                    System.out.println(threadNo+"等待状态>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                    this.wait();
+                    System.out.println(threadNo+"回归运行<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+                    continue;
+                }
+                isWaiting = false;
+                object1 = object;
+                object = null;
+                System.out.println(threadNo+"运行状态+++++++++++++++++++++++++++++++++++++++");
+                switch (orderCode) {
+                    case EXECUTE:
+                        object1.onResult(connectJDBC.execute(sqlString));
+                        break;
+                    case EXECUTE_QUERY:
+                        object1.onResult(connectJDBC.executeQuery(sqlString));
+                        break;
+                    case EXECUTE_UPDATE:
+                        object1.onResult(connectJDBC.executeUpdate(sqlString));
+                        break;
+                }
+                }catch (InterruptedException ex){ex.printStackTrace();}
+        }
+        connectJDBC.unlink();
+        System.out.println(threadNo+"线程已关闭");
+    }
+    void setNewDuty(JDBCgetResult object,int orderCode,String sqlString){
+        this.object = object;
+        this.orderCode = orderCode;
+        this.sqlString = sqlString;
+    }
+    int getThreadNo(){
+        return threadNo;
     }
 }

@@ -8,9 +8,9 @@ import java.util.LinkedList;
 public class ConnectJDBC {
     private static final String JDBC_BASE = "com.mysql.jdbc.Driver";
 
-    private  String databaseURL;
-    private  String user;
-    private  String password;
+    private  String databaseURL = "jdbc:mysql://127.0.0.1:3306/database_for_test";
+    private  String user = "root";
+    private  String password = "admin";
 
     private int isInited = 0;
     private Connection connection = null;
@@ -54,7 +54,7 @@ public class ConnectJDBC {
     }
 
     public LinkedList<String[]> executeQuery(String sqlString){
-        LinkedList<String[]> result =null;
+        LinkedList<String[]> result = new LinkedList<>();
         try {
             ResultSet resultSet = statement.executeQuery(sqlString);
             System.out.println("获取数据成功");

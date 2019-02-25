@@ -6,25 +6,38 @@ import java.util.LinkedList;
 
 public class PoolTest {
     public static void main(String[] args){
-        final ConnectionPool pool = new ConnectionPool();
-        pool.init(pool);
-        for(int i=0;i<20;i++){
-            new Thread(new GetTest(pool)).start();
+        ConnectionPool pool = ConnectionPool.getInstance();
+        pool.init();
+        for(int i=0;i<1000;i++){
+            GetTest test = new GetTest(pool);
+            System.out.println(test.testno+"测试线程已创建");
+            new Thread(test).start();
         }
+
     }
 }
-class GetTest implements Runnable{
+class GetTest implements Runnable,JDBCgetResult{
     private final ConnectionPool pool;
+    static int testMax = 0;
+    int testno = 0;
     GetTest(ConnectionPool pool){
         this.pool = pool;
+        testMax += 1;
+        testno = testMax;
     }
     public void run(){
-        LinkedList<String[]> list = pool.useExecuteQuery().send("Select * From tickets;");
-        for(String[] sonList:list){
-            for(String each:sonList){
-                System.out.print(each + " | ");
+        pool.doIt(ConnectionPool.EXECUTE_QUERY,"Select * From tickets;",this);
+    }
+    public void onResult(LinkedList<String[]> list){
+        new Thread(
+                ()-> {
+            System.out.println(this.testno+"测试结果已得到");
+            for(String[] sonList:list) {
+                for (String each : sonList) {
+                    System.out.print(each + " | ");
+                }
+                System.out.print("\n");
             }
-            System.out.print("\n");
-        }
+        }).start();
     }
 }
