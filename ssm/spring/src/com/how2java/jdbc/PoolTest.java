@@ -8,7 +8,7 @@ public class PoolTest {
     public static void main(String[] args){
         ConnectionPool pool = ConnectionPool.getInstance();
         pool.init();
-        for(int i=0;i<1000;i++){
+        for(int i=0;i<100;i++){
             GetTest test = new GetTest(pool);
             System.out.println(test.testno+"测试线程已创建");
             new Thread(test).start();
@@ -26,7 +26,9 @@ class GetTest implements Runnable,JDBCgetResult{
         testno = testMax;
     }
     public void run(){
-        pool.doIt(ConnectionPool.EXECUTE_QUERY,"Select * From tickets;",this);
+        synchronized (pool){
+            pool.send(ConnectionPool.EXECUTE_QUERY,"Select * From tickets;",this);
+        }
     }
     public void onResult(LinkedList<String[]> list){
         new Thread(
