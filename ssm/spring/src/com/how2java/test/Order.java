@@ -14,7 +14,7 @@ public class Order {
     private int clearPrice;
     private int profit;
     private int ticketNo;
-    Order(String[] list){
+    public Order(String[] list){
         passagers = new Passager();
         try {
             orderId = Integer.parseInt(list[0]);

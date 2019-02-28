@@ -1,157 +1,133 @@
 package com.how2java.jdbc;
 
-import javax.swing.plaf.nimbus.State;
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-import java.util.Vector;
-import java.util.concurrent.ConcurrentLinkedDeque;
+import com.how2java.test.Order;
+
+import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeUnit;
 
-/**
- * 用户线程通过excute方法访问connectionPool
- *class
- */
-public class ConnectionPool implements StateOfJDBC {
+public class ConnectionPool implements JDBCCallBack{
     private static final ConnectionPool connectionPool = new ConnectionPool();
-    private SonThread[] pool;
-    private ConcurrentLinkedQueue<Message> messages;
-    private static final int maxThreadNums = 20;
-    private static final int MAX_MESSAGE_NUM = 20;
-    private static final int POLL = 0;
-    private static final int OFFER = 1;
+    private final ObjectManager objectManager = new ObjectManager();
 
-    private ConnectionPool(){}
+    private SonThread[] threads = new SonThread[MAX_THREAD_NUMS];
+    private ConcurrentLinkedQueue<Message> messages = new ConcurrentLinkedQueue<>();
 
-    static ConnectionPool getInstance(){
+    private static final int MAX_THREAD_NUMS = 20;
+
+    private ConnectionPool(){
+        for(int i=0;i<MAX_THREAD_NUMS;i++){
+            threads[i] = new SonThread();
+            threads[i].start();
+        }
+    }
+    private static ConnectionPool getInstance(){
         return connectionPool;
     }
-    void init(){
-        new Thread(this::start);
+    static ObjectManager getObjectManager(){
+        return getInstance().objectManager;
     }
-    private void start(){
-        pool = new SonThread[maxThreadNums];
-        for(SonThread each:pool){
-            each = new SonThread();
-            each.start();
-        }
-        while (true){
-            while (messages.isEmpty()){
-                try{
-                    TimeUnit.SECONDS.sleep(1);
-                }catch (InterruptedException e){e.printStackTrace();}
-            }
-            for(SonThread eachThread:pool){
-                if(eachThread.getState().equals(Thread.State.WAITING)){
-                    System.out.println("开始处理请求...................");
-                    try{
-                        while (true){
-                            Message message =messages.peek();
-                            if(message != null){
-                                eachThread.setNewDuty(message);
-                                break;
-                            }
-                        }
-                        synchronized (eachThread){eachThread.notify();}
-                    }catch (NoSuchElementException ex){
-                        try{
-                            TimeUnit.SECONDS.sleep(1);
-                        }catch (InterruptedException e){e.printStackTrace();}
-                    }
-                }
-            }
-        }
+    static void executeQuery(String sqlString){
+        connectionPool.send(EXECUTE_QUERY,sqlString, getObjectManager());
+    }
+    static void execute(String sqlString,Object object){
+        connectionPool.send(EXECUTE,sqlString, object);
     }
 
-    void send(int orderCode,String sqlString,JDBCgetResult object){
+    private void send(int orderCode, String sqlString, Object object){
         messages.offer(new Message(orderCode,sqlString,object));
-        System.out.println("信息已收到");
+
     }
     public void close(){
-        for(SonThread thread:pool){
-            while (thread.getState() == Thread.State.WAITING){
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                }catch (InterruptedException ex){ex.printStackTrace();}
-            }
+        for(SonThread thread:threads){
             thread.isEnd = true;
         }
         System.out.println("Threads has been closed");
     }
-}
-class Message{
-    int orderCode;
-    String sqlString;
-    JDBCgetResult jdbCgetResult;
-    Message(int orderCode,String sqlString,JDBCgetResult jdbCgetResult){
-        this.orderCode = orderCode;
-        this.sqlString = sqlString;
-        this.jdbCgetResult = jdbCgetResult;
-    }
-}
+    class SonThread extends Thread{
+        private int threadNo;
 
+        private Object callBack;
+        private int orderCode;
+        private String sqlString;
 
-interface StateOfJDBC{
-    int EXECUTE = 0;
-    int EXECUTE_QUERY = 1;
-    int EXECUTE_UPDATE = 2;
-}
+        Boolean isEnd;
 
-class SonThread extends Thread implements StateOfJDBC{
-    private int threadNo;
-    private static int threadMax = 0;
-    private JDBCgetResult object;
-    private int orderCode;
-    private String sqlString;
+        private final ConnectJDBC connectJDBC;
 
-    private JDBCgetResult object1;
-
-    Boolean isEnd;
-    private final ConnectJDBC connectJDBC;
-    SonThread(){
-        connectJDBC = new ConnectJDBC();
-        isEnd = false;
-        threadMax += 1;
-        orderCode = -1;
-        threadNo = threadMax;
-
-    }
-    public synchronized void run(){
-        connectJDBC.link();
-
-        while (!isEnd){
-            try {
-                if(object == null){
-                    System.out.println(threadNo+"等待状态>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                    this.join();
-                    System.out.println(threadNo+"回归运行<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-                    continue;
-                }
-                object1 = object;
-                object = null;
-                System.out.println(threadNo+"运行状态+++++++++++++++++++++++++++++++++++++++");
+        SonThread(){
+            connectJDBC = new ConnectJDBC();
+            isEnd = false;
+            orderCode = -1;
+        }
+        @Override
+        public synchronized void run(){
+            connectJDBC.link();
+            while (!isEnd){
+                getNewDuty();
                 switch (orderCode) {
                     case EXECUTE:
-                        object1.onResult(connectJDBC.execute(sqlString));
+                        Boolean aBoolean = connectJDBC.execute(sqlString);
+                        new Thread(()->objectManager.onResult(aBoolean)).start();
                         break;
                     case EXECUTE_QUERY:
-                        object1.onResult(connectJDBC.executeQuery(sqlString));
+                        LinkedList<String[]> list = connectJDBC.executeQuery(sqlString);
+                        new Thread(()-> objectManager.onResult(list)).start();
                         break;
                     case EXECUTE_UPDATE:
-                        object1.onResult(connectJDBC.executeUpdate(sqlString));
+                        int i = connectJDBC.executeUpdate(sqlString);
+                        new Thread(()-> objectManager.onResult(i)).start();
                         break;
                 }
-                }catch (InterruptedException ex){ex.printStackTrace();}
+            }
+            connectJDBC.unlink();
+            System.out.println(threadNo+"线程已关闭");
         }
-        connectJDBC.unlink();
-        System.out.println(threadNo+"线程已关闭");
+        void getNewDuty(){
+            Message message = null;
+            int sleepCount = 0;
+            while (message == null){
+                message = messages.poll();
+                try {
+                    sleepCount += 1;
+                    TimeUnit.MICROSECONDS.sleep(5);
+                    if(sleepCount == 10){
+                        TimeUnit.SECONDS.sleep(1);
+                        sleepCount = 0;
+                    }
+                }catch (InterruptedException ex){ex.printStackTrace();}
+
+            }
+            this.orderCode = message.orderCode;
+            this.sqlString = message.sqlString;
+            this.callBack = message.callBack;
+        }
     }
-    void setNewDuty(Message message){
-        this.object = message.jdbCgetResult;
-        this.orderCode = message.orderCode;
-        this.sqlString = message.sqlString;
+    class Message{
+        int orderCode;
+        String sqlString;
+        Object callBack;
+        Message(int orderCode, String sqlString, Object callBack){
+            this.orderCode = orderCode;
+            this.sqlString = sqlString;
+            this.callBack = callBack;
+        }
     }
-    int getThreadNo(){
-        return threadNo;
+    class ObjectManager implements JDBCCallBack {
+        private ConcurrentLinkedQueue<Order> orders;
+        private ObjectManager(){
+            orders = new ConcurrentLinkedQueue<>();
+        }
+        public void onResult(LinkedList<String[]> list){
+            for(String[] strings:list){
+                Order order = new Order(strings);
+                orders.offer(order);
+                System.out.println(order.toString());
+            }
+        }
     }
 }
+
+
+
+
