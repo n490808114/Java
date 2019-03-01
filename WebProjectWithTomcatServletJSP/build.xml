@@ -1,0 +1,10 @@
+<project name="web" default="javac">
+    <target name="javac">
+        <javac includeantruntime="false" srcdir="src" destdir="test">
+            <classpath refid="servlet-api"/>
+        </javac>
+    </target>
+    <path id="servlet-api">
+        <fileset file="lib/servlet-api.jar"/>
+    </path>
+</project>
