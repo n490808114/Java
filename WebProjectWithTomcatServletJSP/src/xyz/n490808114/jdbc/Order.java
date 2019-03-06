@@ -1,6 +1,12 @@
 package xyz.n490808114.jdbc;
 
-public class Order {
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSessionEvent;
+import java.io.Serializable;
+
+public class Order implements HttpSessionBindingListener, HttpSessionActivationListener, Serializable {
     private int orderId;
     private String entryDate;
     private String passagersName;
@@ -43,5 +49,25 @@ public class Order {
                 +" | "+this.clearPrice
                 +" | "+this.profit
                 +" | "+this.ticketNo;
+    }
+
+    @Override
+    public void sessionWillPassivate(HttpSessionEvent se) {
+
+    }
+
+    @Override
+    public void sessionDidActivate(HttpSessionEvent se) {
+
+    }
+
+    @Override
+    public void valueBound(HttpSessionBindingEvent event) {
+
+    }
+
+    @Override
+    public void valueUnbound(HttpSessionBindingEvent event) {
+
     }
 }

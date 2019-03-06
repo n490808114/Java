@@ -11,4 +11,7 @@ public class Passager {
         this.orderId = Integer.parseInt(list[1]);
         System.out.println("获取Passager成功");
     }
+    public int getOrderId(){
+        return orderId;
+    }
 }

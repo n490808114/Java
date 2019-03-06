@@ -2,10 +2,10 @@ package xyz.n490808114.jdbc;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-class OrderManager {
+public class OrderManager {
     private static ConcurrentHashMap<Integer,Order> orders = new ConcurrentHashMap<>();
     private OrderManager(){}
-    static Order getOrder(int orderId)throws NullPointerException{
+    public static Order getOrder(int orderId)throws NullPointerException{
         Order order =orders.get(orderId);
         if(order!= null){
             return order;

@@ -2,10 +2,10 @@ package xyz.n490808114.jdbc;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-class PassagerManager {
+public class PassagerManager {
     private static ConcurrentHashMap<String,Passager> passagers = new ConcurrentHashMap<>();
     private PassagerManager(){}
-    static Passager getPassager(String passagerName){
+    public static Passager getPassager(String passagerName){
         Passager passager =passagers.get(passagerName);
         if(passager!= null){
             return passager;

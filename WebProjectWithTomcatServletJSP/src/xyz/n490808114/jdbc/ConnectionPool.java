@@ -16,14 +16,18 @@ public class ConnectionPool{
     private static final int EXECUTE_QUERY = 1;
     private static final int EXECUTE_UPDATE = 2;
 
-    private ConnectionPool(){
+    private ConnectionPool(){}
+    public static void init(){
+        connectionPool.start();
+    }
+    public static void destory(){
+        connectionPool.close();
+    }
+    private void start(){
         for(int i=0;i<MAX_THREAD_NUMS;i++){
             threads[i] = new SonThread();
             threads[i].start();
         }
-    }
-    private static ConnectionPool getInstance(){
-        return connectionPool;
     }
     static void executeQuery(String sqlString,int requestNum){
         connectionPool.send(EXECUTE_QUERY,sqlString,requestNum);

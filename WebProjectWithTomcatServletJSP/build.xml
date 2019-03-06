@@ -2,9 +2,27 @@
     <target name="javac">
         <javac includeantruntime="false" srcdir="src" destdir="test">
             <classpath refid="servlet-api"/>
+            <classpath>
+                <fileset dir="../../spring-framework-5.1.5.RELEASE/libs">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+            <classpath refid="commons-logging"/>
+            <classpath refid="mybatis"/>
         </javac>
     </target>
     <path id="servlet-api">
-        <fileset file="lib/servlet-api.jar"/>
+        <fileset file="web/WEB-INF/lib/servlet-api.jar"/>
+    </path>
+    <path id="spring">
+        <filelist dir="../../spring-framework-5.1.5.RELEASE/libs">
+            <file name=""></file>
+        </filelist>
+    </path>
+    <path id="commons-logging">
+        <fileset file="web/WEB-INF/lib/commons-logging-1.2.jar"/>
+    </path>
+    <path id="mybatis">
+        <fileset file="web/WEB-INF/lib/mybatis-3.5.0.jar"/>
     </path>
 </project>
