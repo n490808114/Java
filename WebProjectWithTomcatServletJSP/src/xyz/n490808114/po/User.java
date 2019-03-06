@@ -10,6 +10,7 @@ public class User implements Serializable {
     private String password;
     private Integer status;
     private Date createDate;
+    private String email;
 
     public int getId() {
         return id;
@@ -57,5 +58,17 @@ public class User implements Serializable {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

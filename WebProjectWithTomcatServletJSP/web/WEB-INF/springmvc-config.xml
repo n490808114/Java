@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
-    <!-- 配置Handle 映射"/Hello"请求 -->
-    <bean name="/hello" class="xyz.n490808114.test.HelloController"/>
-    <!-- 处理映射器讲bean的name作为url进行查找，需要在配置Handle时指定name(即url) -->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-    <!-- SimpleControllerHandlerAdapter 是一个处理器适配器,所有处理适配器都要实现HandlerAdapter接口 -->
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/sping-mvc-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        ">
+
+    <!-- spring扫描base-package下面的文件和子包的文件,如果扫描到有spring相关注解的类,
+        则把这些类注册为spring的bean -->
+    <context:component-scan base-package="xyz.n490808114.controller"/>
+
     <!-- 视图解析器 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 前缀 -->
+        <property name="prefix">
+            <value>/WEB-INF/content/</value>
+        </property>
+
+        <!-- 后缀 -->
+        <!--
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+        -->
+    </bean>
+
+
+    <!-- 配置Handle 映射"/Hello"请求 -->
+    <!--<bean name="/hello" class="xyz.n490808114.controller"/>-->
+    <!-- 处理映射器讲bean的name作为url进行查找，需要在配置Handle时指定name(即url) -->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <!-- SimpleControllerHandlerAdapter 是一个处理器适配器,所有处理适配器都要实现HandlerAdapter接口 -->
+    <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
+    <!-- 视图解析器 -->
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>-->
 
 </beans>

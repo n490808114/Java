@@ -1,6 +1,7 @@
 <project name="web" default="javac">
     <target name="javac">
-        <javac includeantruntime="false" srcdir="src" destdir="test">
+        <javac includeantruntime="false" srcdir="src"
+               destdir="web/WEB-INF/classes">
             <classpath refid="servlet-api"/>
             <classpath>
                 <fileset dir="../../spring-framework-5.1.5.RELEASE/libs">
