@@ -6,7 +6,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" action="login">
         <fieldset>
             <p>
                 <label for="get_loginname">登录名：</label>

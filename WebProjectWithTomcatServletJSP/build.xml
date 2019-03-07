@@ -10,6 +10,13 @@
             </classpath>
             <classpath refid="commons-logging"/>
             <classpath refid="mybatis"/>
+            <classpath>
+                <fileset dir="web/WEB-INF/lib">
+                    <include name="jackson-annotations-2.9.8.jar"/>
+                    <include name="jackson-core-2.9.8.jar"/>
+                    <include name="jackson-databind-2.9.8.jar"/>
+                </fileset>
+            </classpath>
         </javac>
     </target>
     <path id="servlet-api">

@@ -6,7 +6,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" action="register">
         <h1>注册账户</h1>
         <fieldset>
             <p>
