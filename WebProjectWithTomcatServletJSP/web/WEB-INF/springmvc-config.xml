@@ -17,9 +17,14 @@
     <context:component-scan base-package="xyz.n490808114.controller"/>
 <!-- 设置配置方案 -->
     <mvc:annotation-driven/>
-<!-- 使用默认的Servlet来响应静态文件 -->
-    <mvc:default-servlet-handler/>
-<!-- 视图解析器 -->
+    <mvc:resources mapping="/resource/**" location="/WEB-INF/content/"/>
+<!-- 使用默认的Servlet来响应静态文件
+    default-servlet-handle会把静态文件请求的处理转回给Web应用,不过这个只能处理放在WEB-INF之外 web应用根目录下的静态文件-->
+<!-- <mvc:default-servlet-handler/> -->
+
+
+
+    <!-- 视图解析器 -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <!-- 前缀 -->
