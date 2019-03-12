@@ -34,7 +34,7 @@ public class UserController implements Constant {
         user.setLoginName(loginName);
         user.setEmail(email);
         users.add(user);
-        return  "loginForm.jsp";
+        return  "loginForm.html";
     }
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
@@ -49,10 +49,7 @@ public class UserController implements Constant {
         for (User user:
             users ) {
             if ((user.getLoginName().equals(name)||user.getEmail().equals(name))&&user.getPassword().equals(password) ){
-                model.addAttribute("loginname",user.getLoginName());
-                model.addAttribute("username",user.getUserName());
-                model.addAttribute("email",user.getEmail());
-                model.addAttribute("password",user.getPassword());
+                model.addAttribute("user",user);
                 return "myMainPage.jsp";
             }
         }

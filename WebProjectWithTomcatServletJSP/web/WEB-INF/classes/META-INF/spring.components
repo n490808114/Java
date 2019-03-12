@@ -1,5 +1,6 @@
 #
-#Fri Mar 08 16:58:39 CST 2019
+#Tue Mar 12 16:12:44 CST 2019
 xyz.n490808114.controller.UserController=org.springframework.stereotype.Component
-xyz.n490808114.controller.JsonController=org.springframework.stereotype.Component
+xyz.n490808114.controller.XmlTransController=org.springframework.stereotype.Component
+xyz.n490808114.controller.JsonTransController=org.springframework.stereotype.Component
 xyz.n490808114.controller.MainController=org.springframework.stereotype.Component

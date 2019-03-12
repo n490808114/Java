@@ -10,6 +10,7 @@
 	$(document).ready(function(){
 		testRequestBody();
 		testResponseBody();
+		testReadXml();
 	});
 	function testRequestBody()
 	{
@@ -44,13 +45,15 @@
 	            success:function(data){
 	                for(var i=0;i<data.length;i++){
 	                    var tr = $("#UserMessage");
-                        $("<td/>").html(this.id).appendTo(tr);
-                        $("<td/>").html(this.userName).appendTo(tr);
-                        $("<td/>").html(this.loginName).appendTo(tr);
-                        $("<td/>").html(this.password).appendTo(tr);
-                        $("<td/>").html(this.createDate).appendTo(tr);
-                        $("<td/>").html(this.email).appendTo(tr);
+	                    var simgle_data = data[i];
+                        $("<td/>").html(simgle_data.id).appendTo(tr);
+                        $("<td/>").html(simgle_data.userName).appendTo(tr);
+                        $("<td/>").html(simgle_data.loginName).appendTo(tr);
+                        $("<td/>").html(simgle_data.password).appendTo(tr);
+                        $("<td/>").html(simgle_data.createDate).appendTo(tr);
+                        $("<td/>").html(simgle_data.email).appendTo(tr);
                         $("#UserTable").append(tr);
+                        tr = null;
 	                }
 	            },
 	            error:function(){
@@ -59,6 +62,23 @@
 	    }
 	    )
 	}
+	function testReadXml(){
+	    var xmlData = "
+	    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+	    <User>
+	        <id>1</id>
+	        <userName>testUserName</userName>
+	        <password>testPassword</password>
+	    </User>
+	    "
+	    $.ajax({
+	        url : "${pageContent.request.contextPath}/web/xml/readxml",
+	        type:"post",
+	        contentType:"application/xml",
+	        data:xmlData,
+	        async:true,
+	    })
+	    }
 	</script>
 </head>
 <body>

@@ -14,12 +14,11 @@ import xyz.n490808114.po.User;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping("/json")
-public class JsonController implements Constant {
+class JsonTransController implements Constant {
     public static void main(String[] args){
         User user = new User();
         user.setLoginName("admin");
@@ -45,6 +44,7 @@ public class JsonController implements Constant {
             User user = new User();
             user.setId(i);
             user.setUserName(""+i);
+            user.setLoginName("≤‚ ‘"+i);
             users.add(user);
         }
         return users;
