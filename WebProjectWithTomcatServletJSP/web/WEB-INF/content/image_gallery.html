@@ -5,16 +5,9 @@
     <title>Image Gallery</title>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/json2.js"></script>
+    <script src="js/lib.js"></script>
     <script src="js/showPic.js"></script>
-    <script>
-        function preparelinks(){
-            var a = document.getElementById("showPic").getElementsByTagName("a");
-            for(var i=0;i<a.length;i++){
-                a[i].setAttribute("onclick","showPic(this);return false");
-            }
-        }
-        window.onload=preparelinks;
-    </script>
+
 </head>
 <body>
 <h1>Snapshots</h1>
@@ -25,7 +18,7 @@
         <a href="picture/screencut.jpg" title="screencut" >Screen Cut</a>
     </li>
 </ul>
-<img id="showimg" src="picture/screencut.jpg" alt="test">
+
 
 </body>
 </html>
