@@ -19,11 +19,13 @@
             elem.style.position = "absolute";
             elem.style.left = "50px";
             elem.style.top = "90px";
-            moveNav("nav");
-            moveNav("test");
-        }
-        function moveNav(elemType){
-            moveNav(elemType,true);
+            var elem1 = document.getElementById("test");
+            elem1.style.position = "absolute";
+            elem1.style.left = "200px";
+            elem1.style.top = "90px";
+            moveNav("nav",true);
+            moveNav("test",true);
+
         }
         function moveNav(elemType,style){
             if(!document.getElementById)return false;
@@ -40,8 +42,76 @@
             elem.style.top = top+"px";
             setTimeout("moveNav('"+ elemType +"',"+ style +")",40);
         }
-
-        addLoadEvent(positionNav);
+        function moveElement(elemType,left,top,speed){
+            var elem = document.getElementById(elemType);
+            var startLeft = parseInt(elem.style.left);
+            var startTop = parseInt(elem.style.top);
+            var endLeft = Math.round(left);
+            var endTop = Math.round(top);
+            if(elem.moveElement){
+                clearTimeout(elem.moveElement);
+            }
+            if(!elem.style.left){
+                elem.style.left = "0px";
+            }
+            if(!elem.style.top){
+                elem.style.top = "0px";
+            }
+            var dist;
+            if(startLeft < endLeft){
+                dist = Math.ceil((endLeft - startLeft)/10);
+                startLeft += dist;;
+            }else if(startLeft > endLeft){
+                dist = Math.ceil((startLeft - endLeft)/10);
+                startLeft -= dist;
+            }
+            if(startTop < endTop){
+                dist = Math.ceil((endTop - startTop)/10);
+                startTop += dist;
+            }else if(startTop > endTop){
+                dist = Math.ceil((startTop - endTop)/10);
+                startTop -= dist;
+            }
+            elem.style.left = startLeft + "px";
+            elem.style.top = startTop + "px";
+            if(startLeft == endLeft && startTop == endTop){return true}
+            elem.moveElement =  setTimeout("moveElement('"+elemType +"',"+left+","+top+","+speed+")",speed);
+        }
+        function previewSlideShow(){
+            var preview = document.getElementById("preview");
+            preview.style.position = "absolute";
+            preview.style.left = "0px";
+            preview.style.top = "0px";
+            var links = document.getElementById("nav").getElementsByTagName("a");
+            links[0].onmouseover = function(){
+                moveElement("preview",-100,0,10);
+            }
+            links[1].onmouseover = function(){
+                moveElement("preview",-200,0,10);
+            }
+            links[2].onmouseover = function(){
+                moveElement("preview",-300,0,10);
+            }
+        }
+        addLoadEvent(previewSlideShow);
+        function draw(){
+            var canvas = document.getElementById("draw");
+            if(canvas.getContext){
+                var ctx = canvas.getContext("2d");
+                ctx.beginPath();
+                ctx.moveTo(120.0,32.0);
+                ctx.bezierCurveTo(120.0,36.4,116.4,40.0,112.0,40.0);
+                ctx.lineTo(8.0,40.0);
+                ctx.bezierCurveTo(3.6,40.0,0.0,36.4,0.0,32.0);
+                ctx.lineTo(120.0,32.0);
+                ctx.closePath();
+                ctx.fill();
+                ctx.lineWidth = 2.0;
+                ctx.strokeStyle = "rgb(255,255,255)";
+                ctx.stroke();
+            }
+        }
+        addLoadEvent(draw);
     </script>
     <style>
         body{
@@ -75,6 +145,12 @@
         }
         tr:hover{
             font-weight: bold;
+        }
+        #slideshow{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -120,5 +196,11 @@
             </tr>
         </tbody>
     </table>
+    <div id="slideshow">
+        <img src="topics.gif" id="preview">
+    </div>
+    <canvas id="draw" width="200px" height="100px">
+        <p>Powered By HTML5 canvas</p>
+    </canvas>
 </body>
 </html>

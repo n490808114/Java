@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.n490808114.test">
+    <insert id="save" parameterType="xyz.n490808114.po.User" useGeneratedKeys="true">
+        INSERT INTO user_inf(id,loginname,password,status,createdate,username,email) VALUES(#{id},#{loginName},#{password},#{status},#{createDate},#{userName},#{email})
+    </insert>
+</mapper>
