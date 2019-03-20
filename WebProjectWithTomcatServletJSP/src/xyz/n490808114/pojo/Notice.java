@@ -1,4 +1,4 @@
-package xyz.n490808114.po;
+package xyz.n490808114.pojo;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,7 +1,7 @@
 package xyz.n490808114.dao;
 
 import org.apache.ibatis.jdbc.SQL;
-import xyz.n490808114.po.User;
+import xyz.n490808114.pojo.User;
 
 import java.util.Map;
 

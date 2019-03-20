@@ -1,7 +1,7 @@
 package xyz.n490808114.dao;
 
 import org.apache.ibatis.annotations.*;
-import xyz.n490808114.po.User;
+import xyz.n490808114.pojo.User;
 
 import java.util.List;
 import java.util.Map;

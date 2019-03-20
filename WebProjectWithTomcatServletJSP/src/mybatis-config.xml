@@ -3,8 +3,11 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
     <configuration>
         <settings>
-            <setting name="logImpl" value="LOG4J" />
+            <setting name="logImpl" value="LOG4J"/>
         </settings>
+        <typeAliases>
+            <package name="xyz.n490808114.pojo"/>
+        </typeAliases>
         <environments default="mysql">
             <environment id="mysql">
                 <transactionManager type="JDBC"/>
@@ -17,6 +20,6 @@
             </environment>
         </environments>
         <mappers>
-            <mapper resource="UserMapper.xml"/>
+            <mapper resource="xyz/n490808114/pojo/UserMapper.xml"/>
         </mappers>
     </configuration>

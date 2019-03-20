@@ -1,4 +1,4 @@
-package xyz.n490808114.po;
+package xyz.n490808114.pojo;
 
 import org.springframework.web.multipart.MultipartFile;
 
