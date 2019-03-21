@@ -14,6 +14,7 @@ public class Employee implements Serializable {
     private String address;
     private String postCode;
     private String tel;
+    private String phone;
     private String qqNum;
     private String email;
     private int sex;
@@ -26,6 +27,34 @@ public class Employee implements Serializable {
     private String hobby;
     private String remark;
     private Date createDate;
+    public Employee(){
+        createDate = new Date();
+    }
+    public Employee(int id,Dept dept,Job job,String name,String cardId,String address,String postCode,String tel,
+                    String phone,String qqNum, String email,int sex,String party,Date birthday,String race,
+                    String education, String speciality, String hobby,String remark,Date createDate){
+        this.id=id;
+        this.dept=dept;
+        this.job=job;
+        this.name=name;
+        this.cardId=cardId;
+        this.address=address;
+        this.postCode=postCode;
+        this.tel=tel;
+        this.phone=phone;
+        this.qqNum=qqNum;
+        this.email=email;
+        this.sex=sex;
+        this.party=party;
+        this.birthday=birthday;
+        this.race=race;
+        this.education=education;
+        this.speciality=speciality;
+        this.hobby=hobby;
+        this.remark=remark;
+        this.createDate=createDate;
+
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -177,5 +206,37 @@ public class Employee implements Serializable {
 
     public String getSpeciality() {
         return speciality;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    @Override
+    public String toString() {
+        return "User [id="+id+
+                ",dept="+dept.getId()+
+                ",job="+job.getId()+
+                ",name="+name+
+                ",cardId="+cardId+
+                ",address="+address+
+                ",postCard="+postCode+
+                ",tel="+tel+
+                ",phone="+phone+
+                ",qqNum="+qqNum+
+                ",email="+email+
+                ",sex="+sex+
+                ",party="+party+
+                ",birthday="+birthday+
+                ",race="+race+
+                ",education="+education+
+                ",speciality"+speciality+
+                ",hobby="+hobby+
+                ",remark="+remark+
+                ",createDate="+createDate +"]";
     }
 }

@@ -11,7 +11,9 @@ public class User implements Serializable {
     private int status;
     private Date createDate;
     private String email;
-    public User(){}
+    public User(){
+        createDate = new Date();
+    }
     public User(int id,String userName,String loginName,String password,Integer status,Date createDate,String email){
         this.id=id;
         this.userName=userName;
