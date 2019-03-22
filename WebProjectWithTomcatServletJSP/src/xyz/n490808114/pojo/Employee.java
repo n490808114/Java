@@ -218,7 +218,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "User [id="+id+
+        return "Employee [id="+id+
                 ",dept="+dept.getId()+
                 ",job="+job.getId()+
                 ",name="+name+

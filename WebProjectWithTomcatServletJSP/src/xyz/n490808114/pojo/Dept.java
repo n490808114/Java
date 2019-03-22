@@ -1,18 +1,19 @@
 package xyz.n490808114.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
-public class Dept  implements Serializable {
+public class Dept implements Serializable {
     private int id;
     private String name;
     private String remark;
+    private List<Employee> employees;
     public Dept(){}
     public Dept(int id,String name,String remark){
         this.id=id;
         this.name=name;
         this.remark=remark;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -35,5 +36,20 @@ public class Dept  implements Serializable {
 
     public String getRemark() {
         return remark;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    @Override
+    public String toString() {
+        return "Dept [id=" + id +
+                    ",name=" +name +
+                    ",remark=" + remark + "]";
     }
 }

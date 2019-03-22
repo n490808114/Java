@@ -1,11 +1,16 @@
 package xyz.n490808114.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 import java.io.Serializable;
+import java.util.List;
+
 
 public class Job implements Serializable {
     private int id;
     private String name;
     private String remark;
+    private List<Employee> employees;
     public Job(){}
     public Job(int id,String name,String remark){
         this.id=id;
@@ -35,6 +40,14 @@ public class Job implements Serializable {
 
     public String getRemark() {
         return remark;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
     @Override
