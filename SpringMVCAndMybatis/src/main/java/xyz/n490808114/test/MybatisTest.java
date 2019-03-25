@@ -1,11 +1,9 @@
 package xyz.n490808114.test;
 
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.ibatis.type.IntegerTypeHandler;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import xyz.n490808114.pojo.Job;

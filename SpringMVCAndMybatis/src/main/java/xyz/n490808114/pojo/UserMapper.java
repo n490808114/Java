@@ -1,6 +1,7 @@
 package xyz.n490808114.pojo;
 
 import org.apache.ibatis.annotations.*;
+import xyz.n490808114.dao.UserDynaSqlProvider;
 
 import java.util.List;
 
@@ -9,6 +10,9 @@ public interface UserMapper {
             "VALUES(#{id},#{userName},#{loginName},#{password},#{status},#{createDate},#{email})")
     @Options(useGeneratedKeys = true,keyProperty = "id")
     int saveUser(User user);
+
+    @SelectProvider(type= UserDynaSqlProvider.class,method = "selectUserByLoginNameAndPassword")
+    User selectUser(String loginName,String password);
 
     @Delete("DELETE FROM user_inf WHERE id = #{id}")
     int removeUser(@Param("id") int id);
