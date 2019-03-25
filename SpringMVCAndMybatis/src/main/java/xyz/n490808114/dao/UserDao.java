@@ -14,7 +14,7 @@ public interface UserDao {
     User selectByLoginNameAndPassword(@Param("loginName") String loginName, @Param("password") String password);
 
     //根据id查询员工
-    @Select("select * from " + USER_TABLE + "where id = #{id}")
+    @Select("select * from " + USER_TABLE + " where id = #{id}")
     User selectById(int id);
 
     //根据id删除员工

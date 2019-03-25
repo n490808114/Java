@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
+import xyz.n490808114.dao.UserDao;
 import xyz.n490808114.pojo.Job;
 import xyz.n490808114.pojo.User;
 
@@ -40,7 +41,7 @@ public class MybatisTest {
         sqlSession.close();
     }
     public void select(int a)throws IOException{
-        SqlSession sqlSession = sqlSession = getSession();
+        SqlSession sqlSession  = getSession();
         User user = sqlSession.selectOne("selectUser",a);
         logger.warning(user.toString());
         System.out.println(user.toString());
@@ -49,10 +50,11 @@ public class MybatisTest {
     }
     public void requestMapTest()throws IOException{
         SqlSession sqlSession = getSession();
-        List<Job> userList = sqlSession.selectList("selectUser2");
-        for(Job job:userList){
-            System.out.println(job);
-        }
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        User user = userDao.selectById(1);
+
+        System.out.println(user);
+
         sqlSession.commit();
         sqlSession.close();
     }
