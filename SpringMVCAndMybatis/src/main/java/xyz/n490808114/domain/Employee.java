@@ -1,4 +1,4 @@
-package xyz.n490808114.pojo;
+package xyz.n490808114.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

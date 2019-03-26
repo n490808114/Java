@@ -1,8 +1,7 @@
-package xyz.n490808114.pojo;
+package xyz.n490808114.dao;
 
 import org.apache.ibatis.jdbc.SQL;
 
-import java.util.List;
 import java.util.Map;
 
 public class EmployeeDynaSqlProvider {

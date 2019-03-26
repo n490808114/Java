@@ -1,12 +1,12 @@
 package xyz.n490808114.dao;
 
 import org.apache.ibatis.annotations.*;
-import xyz.n490808114.pojo.User;
+import xyz.n490808114.domain.User;
 
 import java.util.List;
 import java.util.Map;
 
-import static xyz.n490808114.dao.HrmConstants.USER_TABLE;
+import static xyz.n490808114.util.HrmConstants.USER_TABLE;
 
 public interface UserDao {
     //根据登录名和密码查询员工

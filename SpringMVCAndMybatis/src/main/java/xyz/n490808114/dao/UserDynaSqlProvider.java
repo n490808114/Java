@@ -1,11 +1,11 @@
 package xyz.n490808114.dao;
 
 import org.apache.ibatis.jdbc.SQL;
-import xyz.n490808114.pojo.User;
+import xyz.n490808114.domain.User;
 
 import java.util.Map;
 
-import static xyz.n490808114.dao.HrmConstants.USER_TABLE;
+import static xyz.n490808114.util.HrmConstants.USER_TABLE;
 
 public class UserDynaSqlProvider {
     //∑÷“≥∂ØÃ¨≤È—Ø

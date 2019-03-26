@@ -1,4 +1,4 @@
-package xyz.n490808114.dao;
+package xyz.n490808114.util;
 
 public class HrmConstants {
     public static final String USER_TABLE="user_inf";

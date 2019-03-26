@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import xyz.n490808114.pojo.User;
+import xyz.n490808114.domain.User;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

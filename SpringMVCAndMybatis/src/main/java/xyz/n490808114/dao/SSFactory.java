@@ -1,4 +1,4 @@
-package xyz.n490808114.pojo;
+package xyz.n490808114.dao;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

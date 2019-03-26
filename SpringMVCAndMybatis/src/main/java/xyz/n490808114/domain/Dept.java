@@ -1,41 +1,37 @@
-package xyz.n490808114.pojo;
-
-import org.apache.ibatis.type.Alias;
+package xyz.n490808114.domain;
 
 import java.io.Serializable;
 import java.util.List;
 
-
-public class Job implements Serializable {
+public class Dept implements Serializable {
     private int id;
     private String name;
     private String remark;
     private List<Employee> employees;
-    public Job(){}
-    public Job(int id,String name,String remark){
+    public Dept(){}
+    public Dept(int id,String name,String remark){
         this.id=id;
         this.name=name;
         this.remark=remark;
     }
-
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
     }
 
     public int getId() {
         return id;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public String getRemark() {
@@ -52,6 +48,8 @@ public class Job implements Serializable {
 
     @Override
     public String toString() {
-        return ""+id+" "+name+" "+remark;
+        return "Dept [id=" + id +
+                    ",name=" +name +
+                    ",remark=" + remark + "]";
     }
 }

@@ -7,7 +7,7 @@
             <setting name="logImpl" value="LOG4J"/>
         </settings>
         <typeAliases>
-            <package name="xyz.n490808114.pojo"/>
+            <package name="xyz.n490808114.domain"/>
         </typeAliases>
         <environments default="mysql">
             <environment id="mysql">
@@ -21,6 +21,6 @@
             </environment>
         </environments>
         <mappers>
-            <package name="xyz.n490808114.pojo"/>
+            <package name="xyz.n490808114.domain"/>
         </mappers>
     </configuration>

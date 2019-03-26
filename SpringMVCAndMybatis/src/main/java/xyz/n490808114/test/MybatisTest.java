@@ -4,16 +4,13 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 import xyz.n490808114.dao.UserDao;
-import xyz.n490808114.pojo.Job;
-import xyz.n490808114.pojo.User;
+import xyz.n490808114.domain.User;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Logger;
 
 public class MybatisTest {
