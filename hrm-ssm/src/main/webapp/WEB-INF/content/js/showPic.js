@@ -21,4 +21,3 @@ function prepareimg(){
     img.setAttribute("src","");
 }
 
-addLoadEvent(preparelinks);

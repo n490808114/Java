@@ -30,6 +30,7 @@
 
 <!-- 配置SqlSessionFactory,org.mybatis.spring.SqlSessionFactoryBean是mybatis社区开发用于整合Spirng的Bean -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

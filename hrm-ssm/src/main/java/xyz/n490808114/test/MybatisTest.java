@@ -17,8 +17,8 @@ public class MybatisTest {
     static Logger logger = Logger.getLogger(MybatisTest.class.getName());
     public static void main(String[] args){
         String path = MybatisTest.class.getResource("/").getPath();
-        System.out.println(path+ "src/main/webapp/WEB-INF/log4j.properties");
-        PropertyConfigurator.configure(path+ "src/main/webapp/WEB-INF/log4j.properties");
+        System.out.println(path+ "properties/log4j.properties");
+        PropertyConfigurator.configure(path+ "properties/log4j.properties");
         logger.info("test");
         try{
             new MybatisTest().requestMapTest();

@@ -8,8 +8,9 @@ import java.util.Map;
 import static xyz.n490808114.util.HrmConstants.USER_TABLE;
 
 public class UserDynaSqlProvider {
+
     //∑÷“≥∂ØÃ¨≤È—Ø
-    public String selectWhitParam(Map<String,Object> params){
+    public String selectWithParam(Map<String,Object> params){
         String sql = new SQL(){
             {
                 SELECT("*");

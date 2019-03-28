@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Register</title>
+    <title>Login</title>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/json2.js"></script>
     <script>
     function setStyle(point){
         var labels = document.getElementsByTagName("label");
         var input = document.getElementById("get_account");
-        if(point.value == "loginNameStyle"){
+        if(point.value == "loginname"){
             for(var i=0;i<labels.length;i++){
                 if(labels[i].getAttribute("for")=="get_account"){
                     labels[i].firstChild.nodeValue = "登录名：";
@@ -18,7 +18,7 @@
             input.setAttribute("name","loginname")
             input.setAttribute("type","text");
         }
-        if(point.value == "emailStyle"){
+        if(point.value == "email"){
             for(var i=0;i<labels.length;i++){
                 if(labels[i].getAttribute("for")=="get_account"){
                     labels[i].firstChild.nodeValue = "邮箱号：";
@@ -30,19 +30,38 @@
         }
     }
     function chooseLoginStyle(){
-        var inputs = document.getElementsByClassName("loginStyle");
+        var inputs = document.getElementsByName("login");
         for(var i=0;i<inputs.length;i++){
             inputs[i].setAttribute("onclick","setStyle(this)");
         }
     }
     window.onload=chooseLoginStyle;
     </script>
+    <style>
+        body{
+            background-color: #90abdd;
+        }
+        form{
+            padding: 10px;
+            margin: auto;
+            margin-top: 50px;
+            width: 400px;
+            background-color: #3d7796;
+
+        }
+        p{
+            width: 300px;
+            text-align: right;
+        }
+        [name=login]{
+            display: inline;
+        }
+    </style>
 </head>
 <body>
     <form method="post" action="login">
-        <input type="radio" class="loginStyle" value="loginNameStyle" checked> 登录名登录
-        <br>
-        <input type="radio" class="loginStyle" value="emailStyle"> 邮箱登录
+        <input type="radio" name="login" value="loginname" checked> 登录名登录
+        <input type="radio" name="login" value="email"> 邮箱登录
 
         <fieldset>
             <p>
@@ -54,7 +73,7 @@
                 <input type="password" id="get_password" name="password"/>
             </p>
         </fieldset>
-        <input type="submit" >
+        <input id="btn" type="submit" >
     </form>
 </body>
 </html>

@@ -7,6 +7,10 @@ import xyz.n490808114.util.HrmConstants;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class AuthorizedInterceptor implements HandlerInterceptor {
     /** 定义不需要拦截的请求 */
@@ -32,8 +36,7 @@ public class AuthorizedInterceptor implements HandlerInterceptor {
         if(!flag){
             User user = (User) request.getSession().getAttribute(HrmConstants.USER_SESSION);
             if(user == null){
-                request.setAttribute("message","请先登录再访问网站");
-                request.getRequestDispatcher(HrmConstants.LOGIN).forward(request,response);
+                response.sendRedirect(request.getContextPath() + "/login");
                 return flag;
             }else{
                 flag = true;

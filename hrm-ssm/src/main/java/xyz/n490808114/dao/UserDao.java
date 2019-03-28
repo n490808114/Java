@@ -10,7 +10,7 @@ import static xyz.n490808114.util.HrmConstants.USER_TABLE;
 
 public interface UserDao {
     //根据登录名和密码查询员工
-    @Select("select * from " + USER_TABLE + "where loginname = #{loginName} and password = #{password}")
+    @Select("select * from " + USER_TABLE + " where loginname = #{loginName} and password = #{password}")
     User selectByLoginNameAndPassword(@Param("loginName") String loginName, @Param("password") String password);
 
     //根据id查询员工
@@ -26,7 +26,7 @@ public interface UserDao {
     void update(User user);
 
     //动态查询
-    @SelectProvider(type = UserDynaSqlProvider.class,method = "selectWhitParam")
+    @SelectProvider(type = UserDynaSqlProvider.class,method = "selectWithParam")
     List<User> selectByPage(Map<String,Object> params);
 
     //根据参数查询用户总数

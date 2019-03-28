@@ -16,24 +16,15 @@
     则把这些类注册为spring的bean -->
     <context:component-scan base-package="xyz.n490808114.controller"/>
 <!-- 设置配置方案 -->
-    <mvc:annotation-driven conversion-service="conversionService"/>
-
+    <mvc:annotation-driven/>
     <mvc:resources mapping="/**" location="/WEB-INF/content/"/>
+
 <!-- 使用默认的Servlet来响应静态文件
     default-servlet-handle会把静态文件请求的处理转回给Web应用,不过这个只能处理放在WEB-INF之外 web应用根目录下的静态文件-->
 <!-- <mvc:default-servlet-handler/> -->
 
 <!-- 数据转换器 -->
-    <bean id="conversionService"
-          class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <list>
-                <bean class="xyz.n490808114.converter.StringToDateConverter">
-                    <property name="dateFormString" value="YYYY-MM-DD"/>
-                </bean>
-            </list>
-        </property>
-    </bean>
+
 
 <!-- 定义Spring MVC的拦截器 -->
     <mvc:interceptors>

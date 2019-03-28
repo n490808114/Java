@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-public class UserController implements Constant {
+public class UserController  {
     @Autowired
     @Qualifier("hrmServiceImpl")
     private HrmService hrmService;
