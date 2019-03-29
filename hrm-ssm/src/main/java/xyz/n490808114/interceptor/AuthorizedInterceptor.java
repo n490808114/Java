@@ -14,7 +14,8 @@ import java.io.PrintWriter;
 
 public class AuthorizedInterceptor implements HandlerInterceptor {
     /** 定义不需要拦截的请求 */
-    private static final String[] IGNORE_URL ={"/loginForm","login","/404.html","/registerForm","/register"};
+    private static final String[] IGNORE_URL ={"login","/404.html","/register",
+                                                "/js/*.js","/css/*.css","/picture/*.jpg"};
 
     /**
      * preHandle方法是进行处理器拦截用的，该方法将在Controller处理之前进行调用,

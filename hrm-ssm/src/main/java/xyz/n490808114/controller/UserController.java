@@ -3,6 +3,7 @@ package xyz.n490808114.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,8 @@ import xyz.n490808114.domain.User;
 import xyz.n490808114.service.HrmService;
 import xyz.n490808114.util.HrmConstants;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -41,5 +44,13 @@ public class UserController  {
             mv.setViewName("redirect:loginForm.html");
         }
         return mv;
+    }
+    @RequestMapping(value = "/register",method = RequestMethod.GET)
+    public String register(){
+        return "redirect:registerForm.html";
+    }
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String register(@RequestBody User user){
+        return null;
     }
 }
